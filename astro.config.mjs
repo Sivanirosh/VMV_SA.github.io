@@ -3,6 +3,7 @@ import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
   output: 'static',
-  site: 'https://vmv-sa.github.io',
+  site: 'https://sivanirosh.github.io',
+  base: '/VMV_SA.github.io',
   integrations: [tailwind()],
 });
