@@ -10,13 +10,14 @@ interface Props {
   publishedDate: string;
 }
 
+import { url } from '../utils/url';
 const { name, age, location, coverImage, quote, publishedDate } = Astro.props;
 ---
 
 <BaseLayout title={`${name}'s Story`} description={quote}>
   <!-- Cover image -->
   <div class="w-full aspect-[21/9] overflow-hidden">
-    <img src={coverImage} alt={`Portrait of ${name}`} class="w-full h-full object-cover object-top" />
+    <img src={url(coverImage)} alt={`Portrait of ${name}`} class="w-full h-full object-cover object-top" />
   </div>
 
   <article class="max-w-3xl mx-auto px-4 py-16">

@@ -1,13 +1,14 @@
 ---
 import DonateButton from '../shared/DonateButton.astro';
 import { home, images } from '../../i18n/en';
+import { url } from '../../utils/url';
 ---
 
 <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
   <!-- Background image -->
   <div class="absolute inset-0">
     <img
-      src={images.heroMain}
+      src={url(images.heroMain)}
       alt={images.heroAlt}
       class="w-full h-full object-cover"
     />
@@ -25,7 +26,7 @@ import { home, images } from '../../i18n/en';
     <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
       <DonateButton label={home.hero.ctaDonate} size="lg" />
       <a
-        href="/about"
+        href={url('/about')}
         class="inline-flex items-center justify-center px-8 py-4 rounded-md text-lg font-semibold border-2 border-white text-white hover:bg-white hover:text-[var(--color-text)] transition-colors"
       >
         {home.hero.ctaLearnMore}

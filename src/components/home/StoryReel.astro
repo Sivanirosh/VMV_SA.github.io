@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import StoryCard from '../shared/StoryCard.astro';
 import SectionHeader from '../shared/SectionHeader.astro';
 import { home } from '../../i18n/en';
+import { url } from '../../utils/url';
 
 const allStories = await getCollection('stories');
 const latest = allStories
@@ -26,7 +27,7 @@ const latest = allStories
       ))}
     </div>
     <div class="mt-8">
-      <a href="/stories" class="text-[var(--color-primary)] font-semibold hover:underline">
+      <a href={url('/stories')} class="text-[var(--color-primary)] font-semibold hover:underline">
         {home.storyReel.linkLabel} →
       </a>
     </div>

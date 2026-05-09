@@ -1,5 +1,6 @@
 ---
 import { nav } from '../../i18n/en';
+import { url } from '../../utils/url';
 
 interface Props {
   label?: string;
@@ -22,7 +23,7 @@ const variantClasses = {
 ---
 
 <a
-  href="/donate"
+  href={url('/donate')}
   class={`inline-flex items-center justify-center rounded-md font-semibold transition-colors ${sizeClasses[size]} ${variantClasses[variant]}`}
 >
   {label}

@@ -8,16 +8,17 @@ interface Props {
   quote: string;
 }
 
+import { url } from '../../utils/url';
 const { slug, name, age, location, coverImage, quote } = Astro.props;
 ---
 
 <a
-  href={`/stories/${slug}`}
+  href={url(`/stories/${slug}`)}
   class="group block rounded-xl overflow-hidden border border-[var(--color-border)] bg-[var(--color-bg)] hover:shadow-md transition-shadow"
 >
   <div class="aspect-square overflow-hidden">
     <img
-      src={coverImage}
+      src={url(coverImage)}
       alt={`Portrait of ${name}`}
       class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
       loading="lazy"

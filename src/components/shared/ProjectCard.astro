@@ -1,5 +1,6 @@
 ---
 import { projects } from '../../i18n/en';
+import { url } from '../../utils/url';
 
 interface Props {
   slug: string;
@@ -20,12 +21,12 @@ const statusColors = {
 ---
 
 <a
-  href={`/projects/${slug}`}
+  href={url(`/projects/${slug}`)}
   class="group block rounded-xl overflow-hidden border border-[var(--color-border)] bg-[var(--color-bg)] hover:shadow-md transition-shadow"
 >
   <div class="aspect-[16/9] overflow-hidden">
     <img
-      src={coverImage}
+      src={url(coverImage)}
       alt={title}
       class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
       loading="lazy"

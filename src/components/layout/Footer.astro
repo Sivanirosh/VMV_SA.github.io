@@ -1,5 +1,6 @@
 ---
 import { footer, nav, siteName } from '../../i18n/en';
+import { url } from '../../utils/url';
 ---
 
 <footer class="bg-[var(--color-surface)] border-t border-[var(--color-border)] mt-20">
@@ -15,11 +16,11 @@ import { footer, nav, siteName } from '../../i18n/en';
       <div>
         <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)] mb-3">Navigate</p>
         <ul class="flex flex-col gap-2 list-none m-0 p-0">
-          <li><a href="/" class="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-primary)] transition-colors">{nav.home}</a></li>
-          <li><a href="/about" class="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-primary)] transition-colors">{nav.about}</a></li>
-          <li><a href="/projects" class="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-primary)] transition-colors">{nav.projects}</a></li>
-          <li><a href="/stories" class="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-primary)] transition-colors">{nav.stories}</a></li>
-          <li><a href="/volunteer" class="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-primary)] transition-colors">{nav.volunteer}</a></li>
+          <li><a href={url('/')} class="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-primary)] transition-colors">{nav.home}</a></li>
+          <li><a href={url('/about')} class="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-primary)] transition-colors">{nav.about}</a></li>
+          <li><a href={url('/projects')} class="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-primary)] transition-colors">{nav.projects}</a></li>
+          <li><a href={url('/stories')} class="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-primary)] transition-colors">{nav.stories}</a></li>
+          <li><a href={url('/volunteer')} class="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-primary)] transition-colors">{nav.volunteer}</a></li>
         </ul>
       </div>
 
@@ -28,7 +29,7 @@ import { footer, nav, siteName } from '../../i18n/en';
         <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)] mb-3">Legal</p>
         <ul class="flex flex-col gap-2 list-none m-0 p-0">
           <li><a href="#" class="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-primary)] transition-colors">{footer.links.privacy}</a></li>
-          <li><a href="/contact" class="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-primary)] transition-colors">{footer.links.contact}</a></li>
+          <li><a href={url('/contact')} class="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-primary)] transition-colors">{footer.links.contact}</a></li>
           <li><a href="#" class="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-primary)] transition-colors">{footer.links.financials}</a></li>
         </ul>
       </div>

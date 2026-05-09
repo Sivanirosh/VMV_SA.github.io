@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionHeader from '../components/shared/SectionHeader.astro';
 import DonateButton from '../components/shared/DonateButton.astro';
 import { about, images } from '../i18n/en';
+import { url } from '../utils/url';
 ---
 
 <BaseLayout title={about.meta.title} description={about.meta.description}>
@@ -16,7 +17,7 @@ import { about, images } from '../i18n/en';
         <p class="text-lg text-[var(--color-text-muted)] leading-relaxed">{about.hero.subheading}</p>
       </div>
       <div class="rounded-xl overflow-hidden aspect-[4/3]">
-        <img src={images.aboutTeam} alt={images.aboutTeamAlt} class="w-full h-full object-cover" />
+        <img src={url(images.aboutTeam)} alt={images.aboutTeamAlt} class="w-full h-full object-cover" />
       </div>
     </div>
   </section>
@@ -45,7 +46,7 @@ import { about, images } from '../i18n/en';
         {about.team.members.map((member) => (
           <div class="flex gap-5 items-start p-6 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)]">
             <img
-              src={member.image}
+              src={url(member.image)}
               alt={member.imageAlt}
               class="w-20 h-20 rounded-full object-cover shrink-0"
             />
