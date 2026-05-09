@@ -1,0 +1,66 @@
+---
+import { volunteer } from '../../i18n/en';
+
+const { fields, submit, disclaimer } = volunteer.form;
+---
+
+<form action="#" class="space-y-5">
+  <div>
+    <label class="block text-sm font-semibold text-[var(--color-text)] mb-1" for="vol-name">
+      {fields.name}
+    </label>
+    <input
+      id="vol-name"
+      type="text"
+      disabled
+      placeholder="In Progress…"
+      class="w-full px-4 py-3 rounded-md border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text)] placeholder-[var(--color-text-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
+    />
+  </div>
+  <div>
+    <label class="block text-sm font-semibold text-[var(--color-text)] mb-1" for="vol-email">
+      {fields.email}
+    </label>
+    <input
+      id="vol-email"
+      type="email"
+      disabled
+      placeholder="In Progress…"
+      class="w-full px-4 py-3 rounded-md border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text)] placeholder-[var(--color-text-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
+    />
+  </div>
+  <div>
+    <label class="block text-sm font-semibold text-[var(--color-text)] mb-1" for="vol-availability">
+      {fields.availability}
+    </label>
+    <input
+      id="vol-availability"
+      type="text"
+      disabled
+      placeholder="In Progress…"
+      class="w-full px-4 py-3 rounded-md border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text)] placeholder-[var(--color-text-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
+    />
+  </div>
+  <div>
+    <label class="block text-sm font-semibold text-[var(--color-text)] mb-1" for="vol-message">
+      {fields.message}
+    </label>
+    <textarea
+      id="vol-message"
+      rows="4"
+      disabled
+      placeholder="In Progress…"
+      class="w-full px-4 py-3 rounded-md border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text)] placeholder-[var(--color-text-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] resize-none"
+    ></textarea>
+  </div>
+  <div>
+    <button
+      type="submit"
+      disabled
+      class="w-full py-3 px-6 rounded-md font-semibold text-white bg-[var(--color-primary)] opacity-60 cursor-not-allowed"
+    >
+      {submit}
+    </button>
+    <p class="mt-2 text-xs text-[var(--color-text-muted)] text-center">{disclaimer}</p>
+  </div>
+</form>

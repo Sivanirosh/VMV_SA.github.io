@@ -1,0 +1,18 @@
+---
+import { home } from '../../i18n/en';
+---
+
+<section class="py-16 border-t border-[var(--color-border)]">
+  <div class="max-w-6xl mx-auto px-4 text-center">
+    <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)] mb-8">
+      {home.partners.heading}
+    </p>
+    <div class="flex flex-wrap items-center justify-center gap-8">
+      {[1, 2, 3, 4].map(() => (
+        <div class="w-32 h-12 bg-[var(--color-surface)] rounded border border-[var(--color-border)] flex items-center justify-center">
+          <span class="text-xs text-[var(--color-text-muted)]">Partner Logo</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,46 @@
+---
+import { projects } from '../../i18n/en';
+
+interface Props {
+  slug: string;
+  title: string;
+  status: 'planned' | 'in-progress' | 'completed';
+  location: string;
+  coverImage: string;
+  summary: string;
+}
+
+const { slug, title, status, location, coverImage, summary } = Astro.props;
+
+const statusColors = {
+  planned: 'bg-blue-100 text-blue-800',
+  'in-progress': 'bg-amber-100 text-amber-800',
+  completed: 'bg-green-100 text-green-800',
+};
+---
+
+<a
+  href={`/projects/${slug}`}
+  class="group block rounded-xl overflow-hidden border border-[var(--color-border)] bg-[var(--color-bg)] hover:shadow-md transition-shadow"
+>
+  <div class="aspect-[16/9] overflow-hidden">
+    <img
+      src={coverImage}
+      alt={title}
+      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+      loading="lazy"
+    />
+  </div>
+  <div class="p-5">
+    <div class="flex items-center justify-between mb-2">
+      <span class={`text-xs font-semibold px-2 py-1 rounded-full ${statusColors[status]}`}>
+        {projects.statusLabels[status]}
+      </span>
+      <span class="text-xs text-[var(--color-text-muted)]">{location}</span>
+    </div>
+    <h3 class="font-heading text-lg font-bold text-[var(--color-text)] mb-2 group-hover:text-[var(--color-primary)] transition-colors">
+      {title}
+    </h3>
+    <p class="text-sm text-[var(--color-text-muted)] line-clamp-2">{summary}</p>
+  </div>
+</a>

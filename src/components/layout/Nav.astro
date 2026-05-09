@@ -1,0 +1,102 @@
+---
+import { nav, images, siteName } from '../../i18n/en';
+
+const links = [
+  { label: nav.home, href: '/' },
+  { label: nav.about, href: '/about' },
+  { label: nav.projects, href: '/projects' },
+  { label: nav.stories, href: '/stories' },
+  { label: nav.volunteer, href: '/volunteer' },
+  { label: nav.contact, href: '/contact' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 bg-[var(--color-bg)] border-b border-[var(--color-border)]">
+  <nav class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2 shrink-0">
+      <img src={images.logoMain} alt={images.logoAlt} class="h-8 w-auto" />
+    </a>
+
+    <!-- Desktop links -->
+    <ul class="hidden md:flex items-center gap-6 list-none m-0 p-0">
+      {links.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class={`text-sm font-body transition-colors hover:text-[var(--color-primary)] ${
+              currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href))
+                ? 'text-[var(--color-primary)] font-semibold'
+                : 'text-[var(--color-text-muted)]'
+            }`}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <!-- Donate button -->
+    <a
+      href="/donate"
+      class="hidden md:inline-flex items-center px-4 py-2 rounded-md text-sm font-semibold text-white bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] transition-colors"
+    >
+      {nav.donate}
+    </a>
+
+    <!-- Mobile hamburger -->
+    <button
+      id="nav-toggle"
+      class="md:hidden p-2 text-[var(--color-text-muted)] hover:text-[var(--color-primary)]"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-[var(--color-border)] bg-[var(--color-bg)]">
+    <ul class="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-4 list-none m-0 p-0">
+      {links.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class={`block text-sm font-body transition-colors hover:text-[var(--color-primary)] ${
+              currentPath === link.href ? 'text-[var(--color-primary)] font-semibold' : 'text-[var(--color-text-muted)]'
+            }`}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+      <li>
+        <a
+          href="/donate"
+          class="inline-flex items-center px-4 py-2 rounded-md text-sm font-semibold text-white bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] transition-colors"
+        >
+          {nav.donate}
+        </a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  const closeIcon = document.getElementById('close-icon');
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = menu?.classList.toggle('hidden') === false;
+    toggle.setAttribute('aria-expanded', String(isOpen));
+    menuIcon?.classList.toggle('hidden', isOpen);
+    closeIcon?.classList.toggle('hidden', !isOpen);
+  });
+</script>

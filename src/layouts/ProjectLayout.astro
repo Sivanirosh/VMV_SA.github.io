@@ -1,0 +1,71 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { projects as projectsStrings } from '../i18n/en';
+
+interface Props {
+  title: string;
+  status: 'planned' | 'in-progress' | 'completed';
+  location: string;
+  startDate: string;
+  completedDate?: string;
+  coverImage: string;
+  stats: {
+    studentsServed: number;
+    classroomsBuilt: number;
+    volunteersInvolved: number;
+  };
+  summary: string;
+}
+
+const { title, status, location, startDate, completedDate, coverImage, stats, summary } = Astro.props;
+
+const statusColors = {
+  planned: 'bg-blue-100 text-blue-800',
+  'in-progress': 'bg-amber-100 text-amber-800',
+  completed: 'bg-green-100 text-green-800',
+};
+---
+
+<BaseLayout title={`${title} — Projects`} description={summary}>
+  <!-- Cover image -->
+  <div class="w-full aspect-[21/9] overflow-hidden">
+    <img src={coverImage} alt={title} class="w-full h-full object-cover" />
+  </div>
+
+  <article class="max-w-4xl mx-auto px-4 py-16">
+    <!-- Header -->
+    <div class="mb-10">
+      <div class="flex flex-wrap items-center gap-3 mb-4">
+        <span class={`text-sm font-semibold px-3 py-1 rounded-full ${statusColors[status]}`}>
+          {projectsStrings.statusLabels[status]}
+        </span>
+        <span class="text-sm text-[var(--color-text-muted)]">{location}</span>
+        <span class="text-sm text-[var(--color-text-muted)]">Started {startDate}</span>
+        {completedDate && <span class="text-sm text-[var(--color-text-muted)]">Completed {completedDate}</span>}
+      </div>
+      <h1 class="font-heading text-4xl md:text-5xl font-bold text-[var(--color-text)] mb-4">{title}</h1>
+      <p class="text-xl text-[var(--color-text-muted)] leading-relaxed">{summary}</p>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-3 gap-4 p-6 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] mb-12">
+      <div class="text-center">
+        <p class="font-heading text-3xl font-bold text-[var(--color-primary)]">{stats.studentsServed}</p>
+        <p class="text-xs text-[var(--color-text-muted)] mt-1 uppercase tracking-wide">Students Served</p>
+      </div>
+      <div class="text-center border-x border-[var(--color-border)]">
+        <p class="font-heading text-3xl font-bold text-[var(--color-primary)]">{stats.classroomsBuilt}</p>
+        <p class="text-xs text-[var(--color-text-muted)] mt-1 uppercase tracking-wide">Classrooms Built</p>
+      </div>
+      <div class="text-center">
+        <p class="font-heading text-3xl font-bold text-[var(--color-primary)]">{stats.volunteersInvolved}</p>
+        <p class="text-xs text-[var(--color-text-muted)] mt-1 uppercase tracking-wide">Volunteers</p>
+      </div>
+    </div>
+
+    <!-- Body -->
+    <div class="prose prose-lg max-w-none text-[var(--color-text-muted)] prose-headings:font-heading prose-headings:text-[var(--color-text)]">
+      <slot />
+    </div>
+  </article>
+</BaseLayout>

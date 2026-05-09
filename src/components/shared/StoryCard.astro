@@ -1,0 +1,35 @@
+---
+interface Props {
+  slug: string;
+  name: string;
+  age: number;
+  location: string;
+  coverImage: string;
+  quote: string;
+}
+
+const { slug, name, age, location, coverImage, quote } = Astro.props;
+---
+
+<a
+  href={`/stories/${slug}`}
+  class="group block rounded-xl overflow-hidden border border-[var(--color-border)] bg-[var(--color-bg)] hover:shadow-md transition-shadow"
+>
+  <div class="aspect-square overflow-hidden">
+    <img
+      src={coverImage}
+      alt={`Portrait of ${name}`}
+      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+      loading="lazy"
+    />
+  </div>
+  <div class="p-5">
+    <p class="text-xs text-[var(--color-text-muted)] mb-2">{location}</p>
+    <blockquote class="text-sm italic text-[var(--color-text)] mb-3 leading-relaxed">
+      "{quote}"
+    </blockquote>
+    <p class="font-semibold text-sm text-[var(--color-text)]">
+      — {name}, {age}
+    </p>
+  </div>
+</a>

@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeader from '../components/shared/SectionHeader.astro';
+import PartnerForm from '../components/forms/PartnerForm.astro';
+import { contact } from '../i18n/en';
+---
+
+<BaseLayout title={contact.meta.title} description={contact.meta.description}>
+  <!-- Hero -->
+  <section class="py-20 bg-[var(--color-surface)]">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <h1 class="font-heading text-4xl md:text-5xl font-bold text-[var(--color-text)] mb-4">
+        {contact.hero.heading}
+      </h1>
+      <p class="text-lg text-[var(--color-text-muted)]">{contact.hero.subheading}</p>
+    </div>
+  </section>
+
+  <!-- Form -->
+  <section class="py-20">
+    <div class="max-w-2xl mx-auto px-4">
+      <SectionHeader heading={contact.form.heading} />
+      <PartnerForm />
+    </div>
+  </section>
+</BaseLayout>

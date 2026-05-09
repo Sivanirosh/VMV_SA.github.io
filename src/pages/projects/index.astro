@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../../components/shared/ProjectCard.astro';
+import SectionHeader from '../../components/shared/SectionHeader.astro';
+import { projects as projectsStrings } from '../../i18n/en';
+
+const allProjects = await getCollection('projects');
+---
+
+<BaseLayout title={projectsStrings.meta.title} description={projectsStrings.meta.description}>
+  <section class="py-20">
+    <div class="max-w-6xl mx-auto px-4">
+      <SectionHeader
+        heading={projectsStrings.heading}
+        subheading={projectsStrings.subheading}
+      />
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {allProjects.map((project) => (
+          <ProjectCard
+            slug={project.slug}
+            title={project.data.title}
+            status={project.data.status}
+            location={project.data.location}
+            coverImage={project.data.coverImage}
+            summary={project.data.summary}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

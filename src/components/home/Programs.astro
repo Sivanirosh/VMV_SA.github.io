@@ -1,0 +1,37 @@
+---
+import SectionHeader from '../shared/SectionHeader.astro';
+import { home } from '../../i18n/en';
+
+const programs = [
+  {
+    icon: '🏗️',
+    title: home.programs.build.title,
+    body: home.programs.build.body,
+  },
+  {
+    icon: '📚',
+    title: home.programs.educate.title,
+    body: home.programs.educate.body,
+  },
+  {
+    icon: '🌱',
+    title: home.programs.sustain.title,
+    body: home.programs.sustain.body,
+  },
+];
+---
+
+<section class="py-20 bg-[var(--color-surface)]">
+  <div class="max-w-6xl mx-auto px-4">
+    <SectionHeader heading={home.programs.heading} centered />
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-4">
+      {programs.map((program) => (
+        <div class="bg-[var(--color-bg)] rounded-xl p-8 border border-[var(--color-border)] text-center">
+          <div class="text-4xl mb-4">{program.icon}</div>
+          <h3 class="font-heading text-xl font-bold text-[var(--color-text)] mb-3">{program.title}</h3>
+          <p class="text-[var(--color-text-muted)] leading-relaxed">{program.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

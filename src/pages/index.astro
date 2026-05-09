@@ -1,12 +1,21 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/home/Hero.astro';
+import ImpactCounter from '../components/home/ImpactCounter.astro';
+import CurrentProject from '../components/home/CurrentProject.astro';
+import StoryReel from '../components/home/StoryReel.astro';
+import Programs from '../components/home/Programs.astro';
+import Partners from '../components/home/Partners.astro';
+import NewsletterSignup from '../components/home/NewsletterSignup.astro';
+import { siteName, siteDescription } from '../i18n/en';
 ---
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>VMV SA — Building Schools in Sri Lanka</title>
-  </head>
-  <body>
-    <h1>VMV SA — Coming Soon</h1>
-  </body>
-</html>
+
+<BaseLayout title={`${siteName} — Building Schools in Sri Lanka`} description={siteDescription}>
+  <Hero />
+  <ImpactCounter />
+  <CurrentProject />
+  <StoryReel />
+  <Programs />
+  <Partners />
+  <NewsletterSignup />
+</BaseLayout>

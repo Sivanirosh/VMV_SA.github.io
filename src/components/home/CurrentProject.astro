@@ -1,0 +1,35 @@
+---
+import { getCollection } from 'astro:content';
+import ProjectCard from '../shared/ProjectCard.astro';
+import SectionHeader from '../shared/SectionHeader.astro';
+import { home } from '../../i18n/en';
+
+const allProjects = await getCollection('projects');
+const current = allProjects.find((p) => p.data.status === 'in-progress');
+---
+
+{current && (
+  <section class="py-20 bg-[var(--color-surface)]">
+    <div class="max-w-6xl mx-auto px-4">
+      <SectionHeader heading={home.currentProject.heading} />
+      <div class="max-w-md">
+        <ProjectCard
+          slug={current.slug}
+          title={current.data.title}
+          status={current.data.status}
+          location={current.data.location}
+          coverImage={current.data.coverImage}
+          summary={current.data.summary}
+        />
+      </div>
+      <div class="mt-6">
+        <a
+          href={`/projects/${current.slug}`}
+          class="text-[var(--color-primary)] font-semibold hover:underline"
+        >
+          {home.currentProject.linkLabel} →
+        </a>
+      </div>
+    </div>
+  </section>
+)}

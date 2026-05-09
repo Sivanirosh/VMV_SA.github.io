@@ -1,0 +1,35 @@
+---
+import DonateButton from '../shared/DonateButton.astro';
+import { home, images } from '../../i18n/en';
+---
+
+<section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+  <!-- Background image -->
+  <div class="absolute inset-0">
+    <img
+      src={images.heroMain}
+      alt={images.heroAlt}
+      class="w-full h-full object-cover"
+    />
+    <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 max-w-4xl mx-auto px-4 text-center text-white">
+    <h1 class="font-heading text-4xl md:text-6xl font-bold leading-tight mb-6">
+      {home.hero.headline}
+    </h1>
+    <p class="text-lg md:text-xl text-white/85 max-w-2xl mx-auto mb-10 leading-relaxed">
+      {home.hero.subheadline}
+    </p>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <DonateButton label={home.hero.ctaDonate} size="lg" />
+      <a
+        href="/about"
+        class="inline-flex items-center justify-center px-8 py-4 rounded-md text-lg font-semibold border-2 border-white text-white hover:bg-white hover:text-[var(--color-text)] transition-colors"
+      >
+        {home.hero.ctaLearnMore}
+      </a>
+    </div>
+  </div>
+</section>

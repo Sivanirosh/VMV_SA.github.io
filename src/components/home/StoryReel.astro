@@ -1,0 +1,34 @@
+---
+import { getCollection } from 'astro:content';
+import StoryCard from '../shared/StoryCard.astro';
+import SectionHeader from '../shared/SectionHeader.astro';
+import { home } from '../../i18n/en';
+
+const allStories = await getCollection('stories');
+const latest = allStories
+  .sort((a, b) => b.data.publishedDate.localeCompare(a.data.publishedDate))
+  .slice(0, 3);
+---
+
+<section class="py-20">
+  <div class="max-w-6xl mx-auto px-4">
+    <SectionHeader heading={home.storyReel.heading} />
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {latest.map((story) => (
+        <StoryCard
+          slug={story.slug}
+          name={story.data.name}
+          age={story.data.age}
+          location={story.data.location}
+          coverImage={story.data.coverImage}
+          quote={story.data.quote}
+        />
+      ))}
+    </div>
+    <div class="mt-8">
+      <a href="/stories" class="text-[var(--color-primary)] font-semibold hover:underline">
+        {home.storyReel.linkLabel} →
+      </a>
+    </div>
+  </div>
+</section>

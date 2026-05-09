@@ -1,0 +1,25 @@
+---
+import { home } from '../../i18n/en';
+
+const stats = [
+  home.impact.schools,
+  home.impact.children,
+  home.impact.volunteers,
+];
+---
+
+<section class="bg-[var(--color-primary)] text-white py-16">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="font-heading text-2xl md:text-3xl font-bold text-center mb-12 text-white/90">
+      {home.impact.heading}
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+      {stats.map((stat) => (
+        <div>
+          <p class="font-heading text-5xl md:text-6xl font-bold mb-2">{stat.value}</p>
+          <p class="text-lg text-white/80 uppercase tracking-wider text-sm font-semibold">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

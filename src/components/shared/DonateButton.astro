@@ -1,0 +1,29 @@
+---
+import { nav } from '../../i18n/en';
+
+interface Props {
+  label?: string;
+  variant?: 'primary' | 'outline';
+  size?: 'sm' | 'md' | 'lg';
+}
+
+const { label = nav.donate, variant = 'primary', size = 'md' } = Astro.props;
+
+const sizeClasses = {
+  sm: 'px-4 py-2 text-sm',
+  md: 'px-6 py-3 text-base',
+  lg: 'px-8 py-4 text-lg',
+};
+
+const variantClasses = {
+  primary: 'bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)]',
+  outline: 'border-2 border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white',
+};
+---
+
+<a
+  href="/donate"
+  class={`inline-flex items-center justify-center rounded-md font-semibold transition-colors ${sizeClasses[size]} ${variantClasses[variant]}`}
+>
+  {label}
+</a>
