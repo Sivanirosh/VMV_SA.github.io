@@ -1,7 +1,7 @@
 ---
 name: "Nuwan"
 age: 13
-location: "Gampaha District, Sri Lanka"
+location: "Punkudutivu, Northern Province, Sri Lanka"
 coverImage: "/images/field/PLACEHOLDER_story-nuwan.jpg"
 quote: "I want to become a teacher one day and come back to this school."
 publishedDate: "2026-04"

@@ -1,7 +1,7 @@
 ---
 name: "Amalka"
 age: 10
-location: "Gampaha District, Sri Lanka"
+location: "Punkudutivu, Northern Province, Sri Lanka"
 coverImage: "/images/field/PLACEHOLDER_story-amalka.jpg"
 quote: "Now I have a place where I can learn without worrying about the rain."
 publishedDate: "2026-03"
