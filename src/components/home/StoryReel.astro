@@ -11,16 +11,10 @@ const latest = allStories
   .slice(0, 3);
 ---
 
-<section class="site-section">
-  <div class="site-container">
-    <div class="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
-      <SectionHeader heading={home.storyReel.heading} />
-      <a href={url('/stories')} class="button-secondary w-fit">
-        {home.storyReel.linkLabel} →
-      </a>
-    </div>
-
-    <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+<section class="py-20">
+  <div class="max-w-6xl mx-auto px-4">
+    <SectionHeader heading={home.storyReel.heading} />
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {latest.map((story) => (
         <StoryCard
           slug={story.slug}
@@ -31,6 +25,11 @@ const latest = allStories
           quote={story.data.quote}
         />
       ))}
+    </div>
+    <div class="mt-8">
+      <a href={url('/stories')} class="text-[var(--color-primary)] font-semibold hover:underline">
+        {home.storyReel.linkLabel} →
+      </a>
     </div>
   </div>
 </section>

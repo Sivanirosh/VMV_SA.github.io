@@ -5,21 +5,16 @@ import { home } from '../../i18n/en';
 const programs = home.programs.items;
 ---
 
-<section class="site-section bg-[rgba(243,233,218,0.55)]">
-  <div class="site-container">
+<section class="py-20 bg-[var(--color-surface)]">
+  <div class="max-w-6xl mx-auto px-4">
     <SectionHeader heading={home.programs.heading} subheading={home.programs.subheading} centered />
-
-    <div class="mt-12 grid grid-cols-1 gap-px bg-[var(--color-border)] md:grid-cols-2 lg:grid-cols-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-4">
       {programs.map((program) => (
-        <article class="bg-[var(--color-card)] p-7 md:p-8">
-          <div class="mb-8 text-3xl" aria-hidden="true">{program.icon}</div>
-          <h3 class="font-heading text-2xl font-bold leading-tight text-[var(--color-text)]">
-            {program.title}
-          </h3>
-          <p class="mt-4 leading-relaxed text-[var(--color-text-muted)]">
-            {program.body}
-          </p>
-        </article>
+        <div class="bg-[var(--color-bg)] rounded-xl p-7 border border-[var(--color-border)] shadow-sm">
+          <div class="text-4xl mb-4" aria-hidden="true">{program.icon}</div>
+          <h3 class="font-heading text-xl font-bold text-[var(--color-text)] mb-3">{program.title}</h3>
+          <p class="text-[var(--color-text-muted)] leading-relaxed">{program.body}</p>
+        </div>
       ))}
     </div>
   </div>

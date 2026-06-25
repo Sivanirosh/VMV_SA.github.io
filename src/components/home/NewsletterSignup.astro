@@ -3,15 +3,16 @@ import { home } from '../../i18n/en';
 import { url } from '../../utils/url';
 ---
 
-<section class="site-section">
-  <div class="site-container bg-[var(--color-primary-dark)] px-6 py-14 text-center text-white md:px-12 md:py-20">
-    <p class="eyebrow mb-6 justify-center text-[#F0D7C4]">{home.newsletter.heading}</p>
-    <h2 class="mx-auto max-w-3xl text-balance font-heading text-4xl font-bold leading-tight md:text-6xl">
-      {home.newsletter.subheading}
-    </h2>
-    <a href={url('/contact')} class="mt-9 inline-flex rounded-sm bg-white px-6 py-4 font-bold text-[var(--color-primary-dark)] transition-colors hover:bg-[#F7EBDD]">
+<section class="py-20 bg-[var(--color-primary)]">
+  <div class="max-w-2xl mx-auto px-4 text-center text-white">
+    <h2 class="font-heading text-3xl md:text-4xl font-bold mb-3">{home.newsletter.heading}</h2>
+    <p class="text-white/85 mb-8 leading-relaxed">{home.newsletter.subheading}</p>
+    <a
+      href={url('/contact')}
+      class="inline-flex items-center justify-center px-8 py-4 rounded-md font-semibold bg-white text-[var(--color-primary)] hover:bg-[var(--color-surface)] transition-colors"
+    >
       {home.newsletter.cta}
     </a>
-    <p class="mt-5 text-sm text-white/68">{home.newsletter.disclaimer}</p>
+    <p class="mt-4 text-xs text-white/70">{home.newsletter.disclaimer}</p>
   </div>
 </section>

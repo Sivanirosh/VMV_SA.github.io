@@ -1,6 +1,4 @@
 ---
-import { sectionKicker } from '../../i18n/en';
-
 interface Props {
   heading: string;
   subheading?: string;
@@ -10,13 +8,12 @@ interface Props {
 const { heading, subheading, centered = false } = Astro.props;
 ---
 
-<div class={`${centered ? 'mx-auto max-w-3xl text-center' : ''}`}>
-  <p class={`eyebrow mb-5 ${centered ? 'justify-center' : ''}`}>{sectionKicker}</p>
-  <h2 class="text-balance font-heading text-4xl font-bold leading-tight text-[var(--color-text)] md:text-5xl">
+<div class={`mb-10 ${centered ? 'text-center' : ''}`}>
+  <h2 class="font-heading text-3xl md:text-4xl font-bold text-[var(--color-text)] leading-tight">
     {heading}
   </h2>
   {subheading && (
-    <p class={`mt-5 text-lg leading-relaxed text-[var(--color-text-muted)] md:text-xl ${centered ? 'mx-auto max-w-3xl' : 'max-w-2xl'}`}>
+    <p class="mt-3 text-lg text-[var(--color-text-muted)] max-w-2xl leading-relaxed">
       {subheading}
     </p>
   )}

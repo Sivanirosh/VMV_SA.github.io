@@ -3,72 +3,70 @@ import { nav, images } from '../../i18n/en';
 import { url } from '../../utils/url';
 
 const links = [
-  { label: nav.home, path: '/', href: url('/') },
-  { label: nav.about, path: '/about', href: url('/about') },
-  { label: nav.projects, path: '/projects', href: url('/projects') },
-  { label: nav.stories, path: '/stories', href: url('/stories') },
-  { label: nav.contact, path: '/contact', href: url('/contact') },
+  { label: nav.home, href: url('/') },
+  { label: nav.about, href: url('/about') },
+  { label: nav.projects, href: url('/projects') },
+  { label: nav.stories, href: url('/stories') },
+  { label: nav.contact, href: url('/contact') },
 ];
 
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const currentPath = (Astro.url.pathname.replace(base, '') || '/').replace(/\/$/, '') || '/';
+const currentPath = Astro.url.pathname;
 ---
 
-<header class="sticky top-0 z-50 border-b border-[var(--color-border)] bg-[rgba(253,250,246,0.94)] backdrop-blur-md">
-  <nav class="site-container flex h-20 items-center justify-between">
-    <a href={url('/')} class="flex items-center gap-3" aria-label={nav.home}>
-      <img src={url(images.logoMain)} alt={images.logoAlt} class="h-10 w-auto" />
+<header class="sticky top-0 z-50 bg-[var(--color-bg)] border-b border-[var(--color-border)]">
+  <nav class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+    <!-- Logo -->
+    <a href={url('/')} class="flex items-center gap-2 shrink-0" aria-label={nav.home}>
+      <img src={url(images.logoMain)} alt={images.logoAlt} class="h-9 w-auto" />
     </a>
 
-    <ul class="hidden items-center gap-8 list-none m-0 p-0 md:flex">
-      {links.map((link) => {
-        const isActive = currentPath === link.path || (link.path !== '/' && currentPath.startsWith(link.path));
-        return (
-          <li>
-            <a
-              href={link.href}
-              class={`relative py-2 text-sm font-semibold transition-colors ${
-                isActive ? 'text-[var(--color-primary-dark)]' : 'text-[var(--color-text-muted)] hover:text-[var(--color-text)]'
-              }`}
-            >
-              {link.label}
-              {isActive && <span class="absolute inset-x-0 -bottom-1 h-0.5 bg-[var(--color-primary)]"></span>}
-            </a>
-          </li>
-        );
-      })}
+    <!-- Desktop links -->
+    <ul class="hidden md:flex items-center gap-6 list-none m-0 p-0">
+      {links.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class={`text-sm font-body transition-colors hover:text-[var(--color-primary)] ${
+              currentPath === link.href || (link.href !== url('/') && currentPath.startsWith(link.href))
+                ? 'text-[var(--color-primary)] font-semibold'
+                : 'text-[var(--color-text-muted)]'
+            }`}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
     </ul>
 
+    <!-- Mobile hamburger -->
     <button
       id="nav-toggle"
-      class="rounded-sm border border-[var(--color-border)] bg-[var(--color-card)] p-2 text-[var(--color-text-muted)] hover:text-[var(--color-primary)] md:hidden"
+      class="md:hidden p-2 text-[var(--color-text-muted)] hover:text-[var(--color-primary)]"
       aria-label={nav.menuLabel}
       aria-expanded="false"
     >
-      <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
       </svg>
     </button>
   </nav>
 
-  <div id="mobile-menu" class="hidden border-t border-[var(--color-border)] bg-[var(--color-bg)] md:hidden">
-    <ul class="site-container flex flex-col gap-1 py-4 list-none m-0">
-      {links.map((link) => {
-        const isActive = currentPath === link.path || (link.path !== '/' && currentPath.startsWith(link.path));
-        return (
-          <li>
-            <a
-              href={link.href}
-              class={`block border-l-2 px-4 py-3 text-sm font-semibold ${
-                isActive ? 'border-[var(--color-primary)] text-[var(--color-primary-dark)]' : 'border-transparent text-[var(--color-text-muted)]'
-              }`}
-            >
-              {link.label}
-            </a>
-          </li>
-        );
-      })}
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-[var(--color-border)] bg-[var(--color-bg)]">
+    <ul class="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-4 list-none m-0 p-0">
+      {links.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class={`block text-sm font-body transition-colors hover:text-[var(--color-primary)] ${
+              currentPath === link.href ? 'text-[var(--color-primary)] font-semibold' : 'text-[var(--color-text-muted)]'
+            }`}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
     </ul>
   </div>
 </header>

@@ -1,5 +1,5 @@
 ---
-import { footer, nav, siteName, images } from '../../i18n/en';
+import { footer, nav, siteName } from '../../i18n/en';
 import { url } from '../../utils/url';
 
 const links = [
@@ -11,24 +11,25 @@ const links = [
 ];
 ---
 
-<footer class="border-t border-[var(--color-border)] bg-[var(--color-card)] px-4 py-14">
-  <div class="site-container">
-    <div class="grid grid-cols-1 gap-10 md:grid-cols-[1.25fr_.75fr_.75fr]">
+<footer class="bg-[var(--color-surface)] border-t border-[var(--color-border)] mt-20">
+  <div class="max-w-6xl mx-auto px-4 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Brand -->
       <div>
-        <img src={url(images.logoMain)} alt={images.logoAlt} class="mb-5 h-11 w-auto" />
-        <p class="font-heading text-2xl font-bold text-[var(--color-text)]">{siteName}</p>
-        <p class="mt-3 max-w-md text-sm font-bold uppercase tracking-[0.14em] text-[var(--color-primary-dark)]">{footer.tagline}</p>
-        <p class="mt-4 max-w-md text-sm leading-relaxed text-[var(--color-text-muted)]">{footer.summary}</p>
+        <p class="font-heading text-lg font-bold text-[var(--color-text)] mb-2">{siteName}</p>
+        <p class="text-sm font-semibold text-[var(--color-primary)] mb-3">{footer.tagline}</p>
+        <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">{footer.summary}</p>
       </div>
 
+      <!-- Nav links -->
       <div>
-        <p class="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
+        <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)] mb-3">
           {footer.sections.navigate}
         </p>
-        <ul class="flex flex-col gap-3 list-none m-0 p-0">
+        <ul class="flex flex-col gap-2 list-none m-0 p-0">
           {links.map((link) => (
             <li>
-              <a href={link.href} class="text-sm font-semibold text-[var(--color-text-muted)] hover:text-[var(--color-primary-dark)] transition-colors">
+              <a href={link.href} class="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-primary)] transition-colors">
                 {link.label}
               </a>
             </li>
@@ -36,21 +37,22 @@ const links = [
         </ul>
       </div>
 
+      <!-- Focus areas -->
       <div>
-        <p class="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
+        <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)] mb-3">
           {footer.sections.focus}
         </p>
-        <ul class="flex flex-col gap-3 list-none m-0 p-0">
+        <ul class="flex flex-col gap-2 list-none m-0 p-0">
           {footer.focusAreas.map((area) => (
-            <li class="text-sm font-semibold text-[var(--color-text-muted)]">{area}</li>
+            <li class="text-sm text-[var(--color-text-muted)]">{area}</li>
           ))}
         </ul>
       </div>
     </div>
 
-    <div class="mt-12 flex flex-col gap-4 border-t border-[var(--color-border)] pt-6 md:flex-row md:items-center md:justify-between">
+    <div class="mt-10 pt-6 border-t border-[var(--color-border)] flex flex-col md:flex-row justify-between gap-4">
       <p class="text-xs text-[var(--color-text-muted)]">{footer.copyright}</p>
-      <p class="max-w-xl text-xs leading-relaxed text-[var(--color-text-muted)] md:text-right">{footer.contactNote}</p>
+      <p class="max-w-xl text-xs text-[var(--color-text-muted)] md:text-right">{footer.contactNote}</p>
     </div>
   </div>
 </footer>

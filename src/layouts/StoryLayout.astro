@@ -17,24 +17,25 @@ const title = age ? `${name}, ${age}` : name;
 ---
 
 <BaseLayout title={`${name} — ${stories.labels.titleSuffix}`} description={quote}>
-  <section class="site-section pt-10 md:pt-16">
-    <div class="site-container max-w-5xl overflow-hidden border border-[var(--color-border)] bg-[var(--color-card)]">
-      <img src={url(coverImage)} alt={name} class="aspect-[16/9] w-full object-cover" />
-      <div class="p-8 md:p-10">
-        <p class="text-sm font-bold uppercase tracking-[0.16em] text-[var(--color-primary-dark)]">
-          {location} · {stories.labels.published} {publishedDate}
-        </p>
-        <h1 class="mt-4 text-balance font-heading text-4xl font-bold leading-tight text-[var(--color-text)] md:text-6xl">{title}</h1>
-      </div>
+  <!-- Cover image -->
+  <div class="w-full aspect-[21/9] overflow-hidden bg-[var(--color-surface)]">
+    <img src={url(coverImage)} alt={name} class="w-full h-full object-cover object-center" />
+  </div>
+
+  <article class="max-w-3xl mx-auto px-4 py-16">
+    <!-- Header -->
+    <div class="mb-10">
+      <p class="text-sm text-[var(--color-text-muted)] mb-3">{location} · {stories.labels.published} {publishedDate}</p>
+      <h1 class="font-heading text-4xl md:text-5xl font-bold text-[var(--color-text)] mb-6">
+        {title}
+      </h1>
+      <p class="border-l-4 border-[var(--color-primary)] pl-6 my-8 text-xl text-[var(--color-text)] leading-relaxed">
+        {quote}
+      </p>
     </div>
-  </section>
 
-  <article class="site-container max-w-3xl pb-24">
-    <p class="border-l-4 border-[var(--color-primary)] pl-6 text-xl leading-relaxed text-[var(--color-text)] md:text-2xl">
-      {quote}
-    </p>
-
-    <div class="prose mt-10 max-w-none">
+    <!-- Body -->
+    <div class="prose prose-lg max-w-none text-[var(--color-text-muted)] prose-headings:font-heading prose-headings:text-[var(--color-text)]">
       <slot />
     </div>
   </article>

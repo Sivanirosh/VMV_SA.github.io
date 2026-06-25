@@ -2,21 +2,19 @@
 import { home } from '../../i18n/en';
 ---
 
-<section class="site-section border-y border-[var(--color-border)] bg-[var(--color-card)]">
-  <div class="site-container grid gap-10 md:grid-cols-[0.95fr_1.05fr] md:items-center">
-    <div>
-      <p class="eyebrow mb-6">{home.partners.heading}</p>
-      <h2 class="text-balance font-heading text-4xl font-bold leading-tight text-[var(--color-text)] md:text-5xl">
-        {home.partners.subheading}
-      </h2>
-    </div>
-
-    <div class="grid grid-cols-2 gap-px bg-[var(--color-border)]">
-      {home.partners.supporters.map((supporter, index) => (
-        <div class="bg-[var(--color-card)] p-6">
-          <p class="text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-primary)]">0{index + 1}</p>
-          <p class="mt-4 font-heading text-xl font-bold text-[var(--color-text)]">{supporter}</p>
-        </div>
+<section class="py-16 border-y border-[var(--color-border)] bg-[var(--color-bg)]">
+  <div class="max-w-5xl mx-auto px-4 text-center">
+    <p class="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-primary)] mb-4">
+      {home.partners.heading}
+    </p>
+    <p class="max-w-3xl mx-auto text-lg text-[var(--color-text-muted)] leading-relaxed mb-8">
+      {home.partners.subheading}
+    </p>
+    <div class="flex flex-wrap items-center justify-center gap-3">
+      {home.partners.supporters.map((supporter) => (
+        <span class="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2 text-sm font-semibold text-[var(--color-text)]">
+          {supporter}
+        </span>
       ))}
     </div>
   </div>

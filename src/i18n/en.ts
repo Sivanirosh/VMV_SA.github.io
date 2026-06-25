@@ -2,7 +2,6 @@ export const siteName = 'VMV Udhavikkaram';
 export const fullSiteName = 'VMV Udhavikkaram (Helping Hand)';
 export const siteDescription =
   'Supporting free education, student welfare and community development across all twelve wards of Pungudutivu, Sri Lanka.';
-export const sectionKicker = 'VMV';
 
 export const images = {
   heroMain: '/images/field/vmv-hero-main.jpg',
@@ -56,11 +55,8 @@ export const home = {
     ctaPrimary: 'Explore the Centre',
     ctaSecondary: 'Read Our Story',
     ctaContact: 'Contact VMV',
-    cardEyebrow: 'Current focus',
-    cardTitle: 'Sulakshana Free Education Centre',
   },
   impact: {
-    kicker: 'At a glance',
     heading: 'Serving all twelve wards of Pungudutivu',
     subheading:
       'What began as one classroom for 20 students is now a growing education centre with teachers, technology, books and community support.',
@@ -132,7 +128,6 @@ export const about = {
       'The origin, mission and values of VMV Udhavikkaram and Sulakshana Free Education Centre.',
   },
   hero: {
-    eyebrow: 'Our story',
     heading: 'About VMV Udhavikkaram',
     subheading:
       'A community and diaspora-supported helping hand for education and welfare in Pungudutivu.',

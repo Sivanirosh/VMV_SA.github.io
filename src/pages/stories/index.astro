@@ -12,14 +12,13 @@ const sorted = allStories.sort((a, b) =>
 ---
 
 <BaseLayout title={storiesStrings.meta.title} description={storiesStrings.meta.description}>
-  <section class="px-4 py-24 md:py-32">
-    <div class="mx-auto max-w-6xl">
+  <section class="py-20">
+    <div class="max-w-6xl mx-auto px-4">
       <SectionHeader
         heading={storiesStrings.heading}
         subheading={storiesStrings.subheading}
-        centered
       />
-      <div class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {sorted.map((story) => (
           <StoryCard
             slug={story.slug}
