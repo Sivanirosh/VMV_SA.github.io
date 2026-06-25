@@ -6,11 +6,11 @@ import { url } from '../utils/url';
 
 <BaseLayout title={`404 — ${siteName}`} description={notFound.body}>
   <section class="flex min-h-[72vh] items-center justify-center px-4 py-20">
-    <div class="surface-card max-w-2xl rounded-[2.5rem] p-8 text-center md:p-12">
-      <p class="gradient-text font-heading text-8xl font-bold md:text-9xl">404</p>
+    <div class="editorial-card max-w-2xl p-8 text-center md:p-12">
+      <p class="font-heading text-8xl font-bold text-[var(--color-primary-dark)] md:text-9xl">404</p>
       <h1 class="mt-4 font-heading text-4xl font-bold text-[var(--color-text)]">{notFound.heading}</h1>
       <p class="mx-auto mt-4 max-w-md text-lg text-[var(--color-text-muted)]">{notFound.body}</p>
-      <a href={url('/')} class="btn-primary mt-8 px-8 py-4">
+      <a href={url('/')} class="button-primary mt-8">
         {notFound.cta}
       </a>
     </div>

@@ -4,31 +4,26 @@ import { home } from '../../i18n/en';
 const stats = home.impact.stats;
 ---
 
-<section class="px-4 py-24">
-  <div class="aurora-panel relative mx-auto max-w-6xl overflow-hidden rounded-[2.5rem] p-6 text-white shadow-2xl md:p-10 lg:p-12">
-    <div class="absolute inset-0 bg-[linear-gradient(120deg,rgba(255,255,255,0.16),transparent_34%,rgba(255,255,255,0.10))]"></div>
-    <div class="relative grid gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-end">
-      <div>
-        <p class="mb-5 inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-white/75">
-          {home.impact.kicker}
-        </p>
-        <h2 class="font-heading text-4xl font-bold leading-tight md:text-5xl">
-          {home.impact.heading}
-        </h2>
-        <p class="mt-5 text-lg leading-relaxed text-white/78">
-          {home.impact.subheading}
-        </p>
-      </div>
+<section class="bg-[var(--color-deep)] px-4 py-20 text-white md:py-28">
+  <div class="site-container grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+    <div>
+      <p class="eyebrow mb-6 text-[#E9CDB6]">{home.impact.kicker}</p>
+      <h2 class="text-balance font-heading text-4xl font-bold leading-tight md:text-6xl">
+        {home.impact.heading}
+      </h2>
+      <p class="mt-6 max-w-xl text-lg leading-relaxed text-white/72">
+        {home.impact.subheading}
+      </p>
+    </div>
 
-      <div class="grid grid-cols-2 gap-3 md:gap-4">
-        {stats.map((stat) => (
-          <div class="rounded-[1.5rem] border border-white/15 bg-white/10 p-5 backdrop-blur-md md:p-6">
-            <p class="font-heading text-4xl font-bold md:text-5xl">{stat.value}</p>
-            <p class="mt-2 text-sm font-bold uppercase tracking-wider text-white">{stat.label}</p>
-            <p class="mt-2 text-sm text-white/68">{stat.helper}</p>
-          </div>
-        ))}
-      </div>
+    <div class="grid grid-cols-2 gap-px bg-white/16">
+      {stats.map((stat) => (
+        <div class="bg-[var(--color-deep)] p-5 md:p-7">
+          <p class="font-heading text-4xl font-bold text-[#E9CDB6] md:text-5xl">{stat.value}</p>
+          <p class="mt-3 text-sm font-bold uppercase tracking-wider text-white">{stat.label}</p>
+          <p class="mt-2 text-sm text-white/62">{stat.helper}</p>
+        </div>
+      ))}
     </div>
   </div>
 </section>

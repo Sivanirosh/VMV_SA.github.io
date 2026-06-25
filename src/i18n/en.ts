@@ -56,11 +56,11 @@ export const home = {
     ctaPrimary: 'Explore the Centre',
     ctaSecondary: 'Read Our Story',
     ctaContact: 'Contact VMV',
-    cardEyebrow: 'VMV Focus',
+    cardEyebrow: 'Current focus',
     cardTitle: 'Sulakshana Free Education Centre',
   },
   impact: {
-    kicker: 'Impact snapshot',
+    kicker: 'At a glance',
     heading: 'Serving all twelve wards of Pungudutivu',
     subheading:
       'What began as one classroom for 20 students is now a growing education centre with teachers, technology, books and community support.',

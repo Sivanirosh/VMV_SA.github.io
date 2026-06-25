@@ -5,20 +5,18 @@ import { home } from '../../i18n/en';
 const programs = home.programs.items;
 ---
 
-<section class="px-4 py-24">
-  <div class="mx-auto max-w-6xl">
+<section class="site-section bg-[rgba(243,233,218,0.55)]">
+  <div class="site-container">
     <SectionHeader heading={home.programs.heading} subheading={home.programs.subheading} centered />
 
-    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
-      {programs.map((program, index) => (
-        <article class={`surface-card group rounded-[2rem] p-7 transition-transform duration-300 hover:-translate-y-1 ${index === 0 ? 'lg:col-span-2 lg:row-span-2 lg:p-10' : ''}`}>
-          <div class={`mb-6 flex items-center justify-center rounded-2xl bg-[var(--color-surface)] ${index === 0 ? 'h-16 w-16 text-4xl' : 'h-14 w-14 text-3xl'}`} aria-hidden="true">
-            {program.icon}
-          </div>
-          <h3 class={`font-heading font-bold leading-tight text-[var(--color-text)] ${index === 0 ? 'text-3xl md:text-4xl' : 'text-2xl'}`}>
+    <div class="mt-12 grid grid-cols-1 gap-px bg-[var(--color-border)] md:grid-cols-2 lg:grid-cols-4">
+      {programs.map((program) => (
+        <article class="bg-[var(--color-card)] p-7 md:p-8">
+          <div class="mb-8 text-3xl" aria-hidden="true">{program.icon}</div>
+          <h3 class="font-heading text-2xl font-bold leading-tight text-[var(--color-text)]">
             {program.title}
           </h3>
-          <p class={`mt-4 text-[var(--color-text-muted)] leading-relaxed ${index === 0 ? 'text-lg' : ''}`}>
+          <p class="mt-4 leading-relaxed text-[var(--color-text-muted)]">
             {program.body}
           </p>
         </article>

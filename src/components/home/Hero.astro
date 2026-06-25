@@ -2,62 +2,53 @@
 import { home, images } from '../../i18n/en';
 import { url } from '../../utils/url';
 
-const featuredStats = [home.impact.stats[0], home.impact.stats[3]];
+const featuredStats = [home.impact.stats[0], home.impact.stats[1], home.impact.stats[2]];
 ---
 
-<section class="relative isolate overflow-hidden px-4 pb-20 pt-10 md:pt-16">
-  <div class="absolute left-1/2 top-10 -z-10 h-[34rem] w-[34rem] -translate-x-1/2 rounded-full bg-[rgba(196,92,46,0.16)] blur-3xl"></div>
-  <div class="absolute right-0 top-24 -z-10 h-72 w-72 rounded-full bg-[rgba(101,84,242,0.14)] blur-3xl"></div>
-
-  <div class="mx-auto grid min-h-[78vh] max-w-6xl items-center gap-12 lg:grid-cols-[1.05fr_.95fr]">
-    <div class="text-center lg:text-left">
-      <p class="kicker mb-6">{home.hero.eyebrow}</p>
-      <h1 class="gradient-text mx-auto max-w-4xl font-heading text-5xl font-bold leading-[0.95] md:text-7xl lg:mx-0 lg:text-8xl">
+<section class="site-section pt-14 md:pt-20">
+  <div class="site-container grid items-center gap-12 lg:grid-cols-[1.02fr_0.98fr]">
+    <div>
+      <p class="eyebrow mb-6">{home.hero.eyebrow}</p>
+      <h1 class="text-balance font-heading text-5xl font-bold leading-[0.98] text-[var(--color-text)] md:text-7xl">
         {home.hero.headline}
       </h1>
-      <p class="mx-auto mt-7 max-w-2xl text-lg leading-relaxed text-[var(--color-text-muted)] md:text-xl lg:mx-0">
+      <p class="mt-7 max-w-2xl text-lg leading-relaxed text-[var(--color-text-muted)] md:text-xl">
         {home.hero.subheadline}
       </p>
-      <div class="mt-9 flex flex-col items-center gap-3 sm:flex-row lg:justify-start">
-        <a href={url('/projects')} class="btn-primary px-7 py-4 text-base md:px-8">
+      <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+        <a href={url('/projects')} class="button-primary">
           {home.hero.ctaPrimary}
         </a>
-        <a href={url('/about')} class="btn-secondary px-7 py-4 text-base md:px-8">
+        <a href={url('/about')} class="button-secondary">
           {home.hero.ctaSecondary}
         </a>
-        <a href={url('/contact')} class="px-5 py-3 font-semibold text-[var(--color-primary-dark)] hover:underline underline-offset-4">
-          {home.hero.ctaContact}
-        </a>
       </div>
     </div>
 
-    <div class="relative mx-auto w-full max-w-xl lg:mx-0">
-      <div class="absolute -inset-5 rounded-[2.5rem] bg-gradient-to-br from-[rgba(196,92,46,0.32)] via-[rgba(101,84,242,0.15)] to-[rgba(75,143,110,0.18)] blur-2xl"></div>
-      <div class="surface-card relative overflow-hidden rounded-[2rem] p-3">
-        <div class="relative overflow-hidden rounded-[1.55rem]">
-          <img
-            src={url(images.heroMain)}
-            alt={images.heroAlt}
-            class="aspect-[4/5] w-full object-cover md:aspect-[5/6]"
-          />
-          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 to-transparent p-6 text-white">
-            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-white/70">{home.hero.cardEyebrow}</p>
-            <p class="mt-2 font-heading text-2xl font-bold">{home.hero.cardTitle}</p>
-          </div>
+    <div class="relative">
+      <div class="photo-frame rounded-sm p-2">
+        <img
+          src={url(images.heroMain)}
+          alt={images.heroAlt}
+          class="aspect-[4/5] w-full object-cover md:aspect-[5/6]"
+        />
+      </div>
+      <div class="absolute bottom-6 left-6 right-6 bg-[rgba(26,18,8,0.78)] p-5 text-white backdrop-blur-sm">
+        <p class="text-xs font-bold uppercase tracking-[0.18em] text-white/70">{home.hero.cardEyebrow}</p>
+        <p class="mt-2 font-heading text-2xl font-bold">{home.hero.cardTitle}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-container mt-12 grid gap-3 border-y border-[var(--color-border)] py-6 md:grid-cols-3">
+    {featuredStats.map((stat) => (
+      <div class="flex items-baseline gap-4 md:justify-center">
+        <p class="font-heading text-4xl font-bold text-[var(--color-primary-dark)]">{stat.value}</p>
+        <div>
+          <p class="font-bold text-[var(--color-text)]">{stat.label}</p>
+          <p class="text-sm text-[var(--color-text-muted)]">{stat.helper}</p>
         </div>
       </div>
-
-      <div class="absolute -left-3 top-8 hidden rounded-2xl border border-white/70 bg-white/85 p-4 shadow-xl backdrop-blur md:block">
-        <p class="font-heading text-3xl font-bold text-[var(--color-primary)]">{featuredStats[0].value}</p>
-        <p class="text-sm font-semibold text-[var(--color-text)]">{featuredStats[0].label}</p>
-        <p class="text-xs text-[var(--color-text-muted)]">{featuredStats[0].helper}</p>
-      </div>
-
-      <div class="absolute -bottom-5 right-4 hidden rounded-2xl border border-white/70 bg-white/90 p-4 shadow-xl backdrop-blur md:block">
-        <p class="font-heading text-3xl font-bold text-[var(--color-accent)]">{featuredStats[1].value}</p>
-        <p class="text-sm font-semibold text-[var(--color-text)]">{featuredStats[1].label}</p>
-        <p class="text-xs text-[var(--color-text-muted)]">{featuredStats[1].helper}</p>
-      </div>
-    </div>
+    ))}
   </div>
 </section>

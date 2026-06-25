@@ -19,7 +19,7 @@ const sorted = allStories.sort((a, b) =>
         subheading={storiesStrings.subheading}
         centered
       />
-      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {sorted.map((story) => (
           <StoryCard
             slug={story.slug}
