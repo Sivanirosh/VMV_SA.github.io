@@ -15,21 +15,21 @@ const title = age ? `${name}, ${age}` : name;
 
 <a
   href={url(`/stories/${slug}`)}
-  class="group block rounded-xl overflow-hidden border border-[var(--color-border)] bg-[var(--color-bg)] hover:shadow-md transition-shadow"
+  class="surface-card group block overflow-hidden rounded-[2rem] p-3 transition-transform duration-300 hover:-translate-y-1"
 >
-  <div class="aspect-[4/3] overflow-hidden">
+  <div class="aspect-[4/3] overflow-hidden rounded-[1.5rem]">
     <img
       src={url(coverImage)}
       alt={name}
-      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+      class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
       loading="lazy"
     />
   </div>
-  <div class="p-5">
-    <p class="text-xs text-[var(--color-text-muted)] mb-2">{location}</p>
-    <h3 class="font-heading text-lg font-bold text-[var(--color-text)] mb-3 group-hover:text-[var(--color-primary)] transition-colors">
+  <div class="p-4">
+    <p class="mb-3 text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-primary)]">{location}</p>
+    <h3 class="font-heading text-2xl font-bold leading-tight text-[var(--color-text)] transition-colors group-hover:text-[var(--color-primary)]">
       {title}
     </h3>
-    <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">{quote}</p>
+    <p class="mt-3 text-sm leading-relaxed text-[var(--color-text-muted)]">{quote}</p>
   </div>
 </a>

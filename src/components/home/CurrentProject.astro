@@ -1,8 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
-import ProjectCard from '../shared/ProjectCard.astro';
 import SectionHeader from '../shared/SectionHeader.astro';
-import { home } from '../../i18n/en';
+import { home, projects as projectStrings } from '../../i18n/en';
 import { url } from '../../utils/url';
 
 const allProjects = await getCollection('projects');
@@ -10,27 +9,59 @@ const current = allProjects.find((p) => p.data.status === 'in-progress');
 ---
 
 {current && (
-  <section class="py-20 bg-[var(--color-surface)]">
-    <div class="max-w-6xl mx-auto px-4">
+  <section class="px-4 py-24">
+    <div class="mx-auto max-w-6xl">
       <SectionHeader heading={home.currentProject.heading} />
-      <div class="max-w-md">
-        <ProjectCard
-          slug={current.slug}
-          title={current.data.title}
-          status={current.data.status}
-          location={current.data.location}
-          coverImage={current.data.coverImage}
-          summary={current.data.summary}
-        />
-      </div>
-      <div class="mt-6">
-        <a
-          href={url(`/projects/${current.slug}`)}
-          class="text-[var(--color-primary)] font-semibold hover:underline"
-        >
-          {home.currentProject.linkLabel} →
-        </a>
-      </div>
+
+      <a
+        href={url(`/projects/${current.slug}`)}
+        class="surface-card group grid overflow-hidden rounded-[2.25rem] p-3 transition-transform duration-300 hover:-translate-y-1 lg:grid-cols-[1.04fr_.96fr]"
+      >
+        <div class="overflow-hidden rounded-[1.75rem]">
+          <img
+            src={url(current.data.coverImage)}
+            alt={current.data.title}
+            class="h-full min-h-[22rem] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="flex flex-col justify-between p-6 md:p-9">
+          <div>
+            <div class="mb-6 flex flex-wrap items-center gap-3">
+              <span class="rounded-full bg-amber-100 px-3 py-1 text-xs font-bold uppercase tracking-wider text-amber-800">
+                {projectStrings.statusLabels[current.data.status]}
+              </span>
+              <span class="text-sm font-semibold text-[var(--color-text-muted)]">{current.data.location}</span>
+            </div>
+            <h3 class="font-heading text-3xl font-bold leading-tight text-[var(--color-text)] md:text-5xl">
+              {current.data.title}
+            </h3>
+            <p class="mt-5 text-lg leading-relaxed text-[var(--color-text-muted)]">
+              {current.data.summary}
+            </p>
+          </div>
+
+          <div class="mt-8 grid grid-cols-3 gap-3">
+            <div class="rounded-2xl bg-[var(--color-surface)] p-4 text-center">
+              <p class="font-heading text-3xl font-bold text-[var(--color-primary)]">{current.data.stats.studentsServed}</p>
+              <p class="text-xs font-semibold uppercase tracking-wide text-[var(--color-text-muted)]">{projectStrings.labels.studentsServed}</p>
+            </div>
+            <div class="rounded-2xl bg-[var(--color-surface)] p-4 text-center">
+              <p class="font-heading text-3xl font-bold text-[var(--color-primary)]">{current.data.stats.classroomsBuilt}</p>
+              <p class="text-xs font-semibold uppercase tracking-wide text-[var(--color-text-muted)]">{projectStrings.labels.classroomsBuilt}</p>
+            </div>
+            <div class="rounded-2xl bg-[var(--color-surface)] p-4 text-center">
+              <p class="font-heading text-3xl font-bold text-[var(--color-primary)]">{current.data.stats.volunteersInvolved}</p>
+              <p class="text-xs font-semibold uppercase tracking-wide text-[var(--color-text-muted)]">{projectStrings.labels.volunteersInvolved}</p>
+            </div>
+          </div>
+
+          <p class="mt-8 inline-flex items-center font-bold text-[var(--color-primary-dark)]">
+            {home.currentProject.linkLabel} <span class="ml-2 transition-transform group-hover:translate-x-1">→</span>
+          </p>
+        </div>
+      </a>
     </div>
   </section>
 )}

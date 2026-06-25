@@ -6,102 +6,104 @@ import { url } from '../utils/url';
 ---
 
 <BaseLayout title={about.meta.title} description={about.meta.description}>
-  <!-- Hero -->
-  <section class="relative py-24 bg-[var(--color-surface)] overflow-hidden">
-    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+  <section class="relative isolate overflow-hidden px-4 py-20 md:py-28">
+    <div class="absolute inset-x-0 top-0 -z-10 h-96 bg-[radial-gradient(circle_at_25%_20%,rgba(196,92,46,0.20),transparent_32%),radial-gradient(circle_at_80%_10%,rgba(101,84,242,0.13),transparent_30%)]"></div>
+    <div class="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]">
       <div>
-        <h1 class="font-heading text-4xl md:text-5xl font-bold text-[var(--color-text)] mb-6">
+        <p class="kicker mb-6">{about.hero.eyebrow}</p>
+        <h1 class="gradient-text font-heading text-5xl font-bold leading-[0.98] md:text-7xl">
           {about.hero.heading}
         </h1>
-        <p class="text-lg text-[var(--color-text-muted)] leading-relaxed">{about.hero.subheading}</p>
+        <p class="mt-7 max-w-2xl text-xl leading-relaxed text-[var(--color-text-muted)]">
+          {about.hero.subheading}
+        </p>
       </div>
-      <div class="rounded-xl overflow-hidden aspect-[4/3] border border-[var(--color-border)] shadow-sm">
-        <img src={url(images.aboutTeam)} alt={images.aboutTeamAlt} class="w-full h-full object-cover" />
+
+      <div class="surface-card overflow-hidden rounded-[2.5rem] p-3">
+        <img src={url(images.aboutTeam)} alt={images.aboutTeamAlt} class="aspect-[4/3] w-full rounded-[2rem] object-cover" />
       </div>
     </div>
   </section>
 
-  <!-- Mission -->
-  <section class="py-20">
-    <div class="max-w-3xl mx-auto px-4">
-      <SectionHeader heading={about.mission.heading} />
-      <div class="space-y-5">
-        {about.mission.paragraphs.map((paragraph) => (
-          <p class="text-lg text-[var(--color-text-muted)] leading-relaxed">{paragraph}</p>
-        ))}
-      </div>
+  <section class="px-4 py-16">
+    <div class="mx-auto grid max-w-6xl gap-5 lg:grid-cols-2">
+      <article class="surface-card rounded-[2rem] p-8 md:p-10">
+        <SectionHeader heading={about.mission.heading} />
+        <div class="space-y-5">
+          {about.mission.paragraphs.map((paragraph) => (
+            <p class="text-lg leading-relaxed text-[var(--color-text-muted)]">{paragraph}</p>
+          ))}
+        </div>
+      </article>
+
+      <article class="aurora-panel rounded-[2rem] p-8 text-white shadow-2xl md:p-10">
+        <h2 class="font-heading text-4xl font-bold leading-tight">{about.origin.heading}</h2>
+        <div class="mt-6 space-y-5">
+          {about.origin.paragraphs.map((paragraph) => (
+            <p class="text-lg leading-relaxed text-white/78">{paragraph}</p>
+          ))}
+        </div>
+      </article>
     </div>
   </section>
 
-  <!-- Origin story -->
-  <section class="py-20 bg-[var(--color-surface)]">
-    <div class="max-w-3xl mx-auto px-4">
-      <SectionHeader heading={about.origin.heading} />
-      <div class="space-y-5">
-        {about.origin.paragraphs.map((paragraph) => (
-          <p class="text-lg text-[var(--color-text-muted)] leading-relaxed">{paragraph}</p>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Values -->
-  <section class="py-20">
-    <div class="max-w-5xl mx-auto px-4">
+  <section class="px-4 py-20">
+    <div class="mx-auto max-w-6xl">
       <SectionHeader heading={about.values.heading} centered />
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 gap-5 md:grid-cols-3">
         {about.values.items.map((item) => (
-          <div class="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 text-center">
-            <p class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[var(--color-primary)] font-heading text-2xl font-bold text-white">
+          <article class="surface-card rounded-[2rem] p-7 text-center transition-transform duration-300 hover:-translate-y-1">
+            <p class="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-[var(--color-primary)] font-heading text-3xl font-bold text-white shadow-lg">
               {item.letter}
             </p>
-            <h3 class="font-heading text-xl font-bold text-[var(--color-text)] mb-2">{item.word}</h3>
-            <p class="text-[var(--color-text-muted)]">{item.meaning}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Centre today -->
-  <section class="py-20 bg-[var(--color-surface)]">
-    <div class="max-w-3xl mx-auto px-4">
-      <SectionHeader heading={about.centre.heading} />
-      <div class="space-y-5">
-        {about.centre.paragraphs.map((paragraph) => (
-          <p class="text-lg text-[var(--color-text-muted)] leading-relaxed">{paragraph}</p>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Milestones -->
-  <section class="py-20">
-    <div class="max-w-5xl mx-auto px-4">
-      <SectionHeader heading={about.milestones.heading} centered />
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {about.milestones.items.map((item) => (
-          <article class="rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-6 shadow-sm">
-            <p class="text-sm font-semibold text-[var(--color-primary)] mb-2">{item.year}</p>
-            <h3 class="font-heading text-xl font-bold text-[var(--color-text)] mb-2">{item.title}</h3>
-            <p class="text-[var(--color-text-muted)] leading-relaxed">{item.body}</p>
+            <h3 class="font-heading text-2xl font-bold text-[var(--color-text)]">{item.word}</h3>
+            <p class="mt-2 text-[var(--color-text-muted)]">{item.meaning}</p>
           </article>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Leadership -->
-  <section class="py-20 bg-[var(--color-surface)]">
-    <div class="max-w-6xl mx-auto px-4">
+  <section class="px-4 py-20">
+    <div class="surface-card mx-auto grid max-w-6xl overflow-hidden rounded-[2.5rem] lg:grid-cols-[0.9fr_1.1fr]">
+      <div class="p-8 md:p-12">
+        <SectionHeader heading={about.centre.heading} />
+        <div class="space-y-5">
+          {about.centre.paragraphs.map((paragraph) => (
+            <p class="text-lg leading-relaxed text-[var(--color-text-muted)]">{paragraph}</p>
+          ))}
+        </div>
+      </div>
+      <img src={url(images.projectCover)} alt={images.projectCoverAlt} class="h-full min-h-96 w-full object-cover" />
+    </div>
+  </section>
+
+  <section class="px-4 py-20">
+    <div class="mx-auto max-w-6xl">
+      <SectionHeader heading={about.milestones.heading} centered />
+      <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
+        {about.milestones.items.map((item, index) => (
+          <article class="surface-card relative overflow-hidden rounded-[2rem] p-7">
+            <div class="absolute right-5 top-5 font-heading text-6xl font-bold text-[rgba(196,92,46,0.10)]">0{index + 1}</div>
+            <p class="text-sm font-bold uppercase tracking-[0.18em] text-[var(--color-primary)]">{item.year}</p>
+            <h3 class="mt-4 font-heading text-2xl font-bold text-[var(--color-text)]">{item.title}</h3>
+            <p class="mt-3 leading-relaxed text-[var(--color-text-muted)]">{item.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="px-4 py-20">
+    <div class="mx-auto max-w-6xl">
       <SectionHeader heading={about.leadership.heading} />
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
         {about.leadership.members.map((member) => (
-          <div class="p-6 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)]">
-            <p class="font-heading font-bold text-lg text-[var(--color-text)]">{member.name}</p>
-            <p class="text-sm text-[var(--color-primary)] font-semibold mb-2">{member.role}</p>
-            <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">{member.bio}</p>
-          </div>
+          <article class="surface-card rounded-[2rem] p-7">
+            <p class="font-heading text-2xl font-bold text-[var(--color-text)]">{member.name}</p>
+            <p class="mt-2 text-sm font-bold uppercase tracking-[0.16em] text-[var(--color-primary)]">{member.role}</p>
+            <p class="mt-4 leading-relaxed text-[var(--color-text-muted)]">{member.bio}</p>
+          </article>
         ))}
       </div>
     </div>

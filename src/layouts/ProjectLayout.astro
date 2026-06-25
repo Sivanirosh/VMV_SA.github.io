@@ -28,44 +28,46 @@ const statusColors = {
 ---
 
 <BaseLayout title={`${title} — ${projectsStrings.heading}`} description={summary}>
-  <!-- Cover image -->
-  <div class="w-full aspect-[21/9] overflow-hidden">
-    <img src={url(coverImage)} alt={title} class="w-full h-full object-cover" />
-  </div>
+  <section class="px-4 py-10 md:py-16">
+    <div class="surface-card mx-auto grid max-w-6xl overflow-hidden rounded-[2.5rem] p-3 lg:grid-cols-[0.95fr_1.05fr]">
+      <div class="overflow-hidden rounded-[2rem]">
+        <img src={url(coverImage)} alt={title} class="h-full min-h-[24rem] w-full object-cover" />
+      </div>
 
-  <article class="max-w-4xl mx-auto px-4 py-16">
-    <!-- Header -->
-    <div class="mb-10">
-      <div class="flex flex-wrap items-center gap-3 mb-4">
-        <span class={`text-sm font-semibold px-3 py-1 rounded-full ${statusColors[status]}`}>
-          {projectsStrings.statusLabels[status]}
-        </span>
-        <span class="text-sm text-[var(--color-text-muted)]">{location}</span>
-        <span class="text-sm text-[var(--color-text-muted)]">{projectsStrings.labels.started} {startDate}</span>
-        {completedDate && <span class="text-sm text-[var(--color-text-muted)]">{projectsStrings.labels.completed} {completedDate}</span>}
-      </div>
-      <h1 class="font-heading text-4xl md:text-5xl font-bold text-[var(--color-text)] mb-4">{title}</h1>
-      <p class="text-xl text-[var(--color-text-muted)] leading-relaxed">{summary}</p>
-    </div>
-
-    <!-- Stats -->
-    <div class="grid grid-cols-3 gap-4 p-6 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] mb-12">
-      <div class="text-center">
-        <p class="font-heading text-3xl font-bold text-[var(--color-primary)]">{stats.studentsServed}</p>
-        <p class="text-xs text-[var(--color-text-muted)] mt-1 uppercase tracking-wide">{projectsStrings.labels.studentsServed}</p>
-      </div>
-      <div class="text-center border-x border-[var(--color-border)]">
-        <p class="font-heading text-3xl font-bold text-[var(--color-primary)]">{stats.classroomsBuilt}</p>
-        <p class="text-xs text-[var(--color-text-muted)] mt-1 uppercase tracking-wide">{projectsStrings.labels.classroomsBuilt}</p>
-      </div>
-      <div class="text-center">
-        <p class="font-heading text-3xl font-bold text-[var(--color-primary)]">{stats.volunteersInvolved}</p>
-        <p class="text-xs text-[var(--color-text-muted)] mt-1 uppercase tracking-wide">{projectsStrings.labels.volunteersInvolved}</p>
+      <div class="p-6 md:p-10">
+        <div class="mb-6 flex flex-wrap items-center gap-3">
+          <span class={`rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider ${statusColors[status]}`}>
+            {projectsStrings.statusLabels[status]}
+          </span>
+          <span class="text-sm font-semibold text-[var(--color-text-muted)]">{location}</span>
+        </div>
+        <h1 class="gradient-text font-heading text-5xl font-bold leading-[0.98] md:text-7xl">{title}</h1>
+        <p class="mt-6 text-xl leading-relaxed text-[var(--color-text-muted)]">{summary}</p>
+        <div class="mt-6 flex flex-wrap gap-3 text-sm text-[var(--color-text-muted)]">
+          <span>{projectsStrings.labels.started} {startDate}</span>
+          {completedDate && <span>{projectsStrings.labels.completed} {completedDate}</span>}
+        </div>
       </div>
     </div>
+  </section>
 
-    <!-- Body -->
-    <div class="prose prose-lg max-w-none text-[var(--color-text-muted)] prose-headings:font-heading prose-headings:text-[var(--color-text)]">
+  <article class="mx-auto max-w-4xl px-4 py-12 md:py-16">
+    <div class="surface-card mb-12 grid grid-cols-3 gap-3 rounded-[2rem] p-4 md:p-6">
+      <div class="rounded-2xl bg-[var(--color-surface)] p-4 text-center">
+        <p class="font-heading text-3xl font-bold text-[var(--color-primary)] md:text-4xl">{stats.studentsServed}</p>
+        <p class="mt-1 text-xs font-bold uppercase tracking-wide text-[var(--color-text-muted)]">{projectsStrings.labels.studentsServed}</p>
+      </div>
+      <div class="rounded-2xl bg-[var(--color-surface)] p-4 text-center">
+        <p class="font-heading text-3xl font-bold text-[var(--color-primary)] md:text-4xl">{stats.classroomsBuilt}</p>
+        <p class="mt-1 text-xs font-bold uppercase tracking-wide text-[var(--color-text-muted)]">{projectsStrings.labels.classroomsBuilt}</p>
+      </div>
+      <div class="rounded-2xl bg-[var(--color-surface)] p-4 text-center">
+        <p class="font-heading text-3xl font-bold text-[var(--color-primary)] md:text-4xl">{stats.volunteersInvolved}</p>
+        <p class="mt-1 text-xs font-bold uppercase tracking-wide text-[var(--color-text-muted)]">{projectsStrings.labels.volunteersInvolved}</p>
+      </div>
+    </div>
+
+    <div class="prose max-w-none">
       <slot />
     </div>
   </article>

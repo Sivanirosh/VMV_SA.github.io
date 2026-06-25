@@ -3,16 +3,20 @@ import { home } from '../../i18n/en';
 import { url } from '../../utils/url';
 ---
 
-<section class="py-20 bg-[var(--color-primary)]">
-  <div class="max-w-2xl mx-auto px-4 text-center text-white">
-    <h2 class="font-heading text-3xl md:text-4xl font-bold mb-3">{home.newsletter.heading}</h2>
-    <p class="text-white/85 mb-8 leading-relaxed">{home.newsletter.subheading}</p>
-    <a
-      href={url('/contact')}
-      class="inline-flex items-center justify-center px-8 py-4 rounded-md font-semibold bg-white text-[var(--color-primary)] hover:bg-[var(--color-surface)] transition-colors"
-    >
-      {home.newsletter.cta}
-    </a>
-    <p class="mt-4 text-xs text-white/70">{home.newsletter.disclaimer}</p>
+<section class="px-4 py-24">
+  <div class="aurora-panel relative mx-auto max-w-6xl overflow-hidden rounded-[2.75rem] p-8 text-center text-white shadow-2xl md:p-14">
+    <div class="absolute -left-16 -top-16 h-56 w-56 rounded-full bg-white/10 blur-3xl"></div>
+    <div class="absolute -bottom-20 right-0 h-72 w-72 rounded-full bg-[rgba(101,84,242,0.28)] blur-3xl"></div>
+
+    <div class="relative mx-auto max-w-3xl">
+      <h2 class="font-heading text-4xl font-bold leading-tight md:text-6xl">{home.newsletter.heading}</h2>
+      <p class="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-white/82 md:text-xl">
+        {home.newsletter.subheading}
+      </p>
+      <a href={url('/contact')} class="mt-9 inline-flex rounded-full bg-white px-8 py-4 font-bold text-[var(--color-primary-dark)] shadow-xl transition-transform hover:-translate-y-1">
+        {home.newsletter.cta}
+      </a>
+      <p class="mt-5 text-sm text-white/65">{home.newsletter.disclaimer}</p>
+    </div>
   </div>
 </section>

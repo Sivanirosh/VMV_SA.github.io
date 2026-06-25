@@ -1,49 +1,63 @@
 ---
 import { home, images } from '../../i18n/en';
 import { url } from '../../utils/url';
+
+const featuredStats = [home.impact.stats[0], home.impact.stats[3]];
 ---
 
-<section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-  <!-- Background image -->
-  <div class="absolute inset-0">
-    <img
-      src={url(images.heroMain)}
-      alt={images.heroAlt}
-      class="w-full h-full object-cover"
-    />
-    <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60"></div>
-  </div>
+<section class="relative isolate overflow-hidden px-4 pb-20 pt-10 md:pt-16">
+  <div class="absolute left-1/2 top-10 -z-10 h-[34rem] w-[34rem] -translate-x-1/2 rounded-full bg-[rgba(196,92,46,0.16)] blur-3xl"></div>
+  <div class="absolute right-0 top-24 -z-10 h-72 w-72 rounded-full bg-[rgba(101,84,242,0.14)] blur-3xl"></div>
 
-  <!-- Content -->
-  <div class="relative z-10 max-w-5xl mx-auto px-4 text-center text-white">
-    <p class="mb-4 text-sm md:text-base font-semibold uppercase tracking-[0.24em] text-white/80">
-      {home.hero.eyebrow}
-    </p>
-    <h1 class="font-heading text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
-      {home.hero.headline}
-    </h1>
-    <p class="text-lg md:text-xl text-white/90 max-w-3xl mx-auto mb-10 leading-relaxed">
-      {home.hero.subheadline}
-    </p>
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-      <a
-        href={url('/projects')}
-        class="inline-flex items-center justify-center px-8 py-4 rounded-md text-lg font-semibold text-white bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] transition-colors"
-      >
-        {home.hero.ctaPrimary}
-      </a>
-      <a
-        href={url('/about')}
-        class="inline-flex items-center justify-center px-8 py-4 rounded-md text-lg font-semibold border-2 border-white text-white hover:bg-white hover:text-[var(--color-text)] transition-colors"
-      >
-        {home.hero.ctaSecondary}
-      </a>
-      <a
-        href={url('/contact')}
-        class="inline-flex items-center justify-center px-8 py-4 rounded-md text-lg font-semibold text-white/90 hover:text-white hover:underline underline-offset-4 transition-colors"
-      >
-        {home.hero.ctaContact}
-      </a>
+  <div class="mx-auto grid min-h-[78vh] max-w-6xl items-center gap-12 lg:grid-cols-[1.05fr_.95fr]">
+    <div class="text-center lg:text-left">
+      <p class="kicker mb-6">{home.hero.eyebrow}</p>
+      <h1 class="gradient-text mx-auto max-w-4xl font-heading text-5xl font-bold leading-[0.95] md:text-7xl lg:mx-0 lg:text-8xl">
+        {home.hero.headline}
+      </h1>
+      <p class="mx-auto mt-7 max-w-2xl text-lg leading-relaxed text-[var(--color-text-muted)] md:text-xl lg:mx-0">
+        {home.hero.subheadline}
+      </p>
+      <div class="mt-9 flex flex-col items-center gap-3 sm:flex-row lg:justify-start">
+        <a href={url('/projects')} class="btn-primary px-7 py-4 text-base md:px-8">
+          {home.hero.ctaPrimary}
+        </a>
+        <a href={url('/about')} class="btn-secondary px-7 py-4 text-base md:px-8">
+          {home.hero.ctaSecondary}
+        </a>
+        <a href={url('/contact')} class="px-5 py-3 font-semibold text-[var(--color-primary-dark)] hover:underline underline-offset-4">
+          {home.hero.ctaContact}
+        </a>
+      </div>
+    </div>
+
+    <div class="relative mx-auto w-full max-w-xl lg:mx-0">
+      <div class="absolute -inset-5 rounded-[2.5rem] bg-gradient-to-br from-[rgba(196,92,46,0.32)] via-[rgba(101,84,242,0.15)] to-[rgba(75,143,110,0.18)] blur-2xl"></div>
+      <div class="surface-card relative overflow-hidden rounded-[2rem] p-3">
+        <div class="relative overflow-hidden rounded-[1.55rem]">
+          <img
+            src={url(images.heroMain)}
+            alt={images.heroAlt}
+            class="aspect-[4/5] w-full object-cover md:aspect-[5/6]"
+          />
+          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 to-transparent p-6 text-white">
+            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-white/70">{home.hero.cardEyebrow}</p>
+            <p class="mt-2 font-heading text-2xl font-bold">{home.hero.cardTitle}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="absolute -left-3 top-8 hidden rounded-2xl border border-white/70 bg-white/85 p-4 shadow-xl backdrop-blur md:block">
+        <p class="font-heading text-3xl font-bold text-[var(--color-primary)]">{featuredStats[0].value}</p>
+        <p class="text-sm font-semibold text-[var(--color-text)]">{featuredStats[0].label}</p>
+        <p class="text-xs text-[var(--color-text-muted)]">{featuredStats[0].helper}</p>
+      </div>
+
+      <div class="absolute -bottom-5 right-4 hidden rounded-2xl border border-white/70 bg-white/90 p-4 shadow-xl backdrop-blur md:block">
+        <p class="font-heading text-3xl font-bold text-[var(--color-accent)]">{featuredStats[1].value}</p>
+        <p class="text-sm font-semibold text-[var(--color-text)]">{featuredStats[1].label}</p>
+        <p class="text-xs text-[var(--color-text-muted)]">{featuredStats[1].helper}</p>
+      </div>
     </div>
   </div>
 </section>
