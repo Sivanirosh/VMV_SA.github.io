@@ -1,5 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 48" fill="none">
-  <!-- PLACEHOLDER logo  replace with final SVG before launch -->
-  <rect width="160" height="48" rx="4" fill="#C45C2E"/>
-  <text x="80" y="30" font-family="Georgia, serif" font-size="18" font-weight="700" fill="white" text-anchor="middle">VMV SA</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 56" role="img" aria-labelledby="title desc">
+  <title id="title">VMV Udhavikkaram</title>
+  <desc id="desc">VMV Udhavikkaram wordmark</desc>
+  <rect width="220" height="56" rx="10" fill="#C45C2E"/>
+  <circle cx="30" cy="28" r="16" fill="#FDFAF6" opacity="0.95"/>
+  <text x="30" y="34" font-family="Georgia, serif" font-size="18" font-weight="700" fill="#C45C2E" text-anchor="middle">V</text>
+  <text x="58" y="25" font-family="Georgia, serif" font-size="18" font-weight="700" fill="#fff">VMV</text>
+  <text x="58" y="41" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#fff" opacity="0.92">Udhavikkaram</text>
 </svg>

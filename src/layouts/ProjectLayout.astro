@@ -27,7 +27,7 @@ const statusColors = {
 };
 ---
 
-<BaseLayout title={`${title} — Projects`} description={summary}>
+<BaseLayout title={`${title} — ${projectsStrings.heading}`} description={summary}>
   <!-- Cover image -->
   <div class="w-full aspect-[21/9] overflow-hidden">
     <img src={url(coverImage)} alt={title} class="w-full h-full object-cover" />
@@ -41,8 +41,8 @@ const statusColors = {
           {projectsStrings.statusLabels[status]}
         </span>
         <span class="text-sm text-[var(--color-text-muted)]">{location}</span>
-        <span class="text-sm text-[var(--color-text-muted)]">Started {startDate}</span>
-        {completedDate && <span class="text-sm text-[var(--color-text-muted)]">Completed {completedDate}</span>}
+        <span class="text-sm text-[var(--color-text-muted)]">{projectsStrings.labels.started} {startDate}</span>
+        {completedDate && <span class="text-sm text-[var(--color-text-muted)]">{projectsStrings.labels.completed} {completedDate}</span>}
       </div>
       <h1 class="font-heading text-4xl md:text-5xl font-bold text-[var(--color-text)] mb-4">{title}</h1>
       <p class="text-xl text-[var(--color-text-muted)] leading-relaxed">{summary}</p>
@@ -52,15 +52,15 @@ const statusColors = {
     <div class="grid grid-cols-3 gap-4 p-6 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] mb-12">
       <div class="text-center">
         <p class="font-heading text-3xl font-bold text-[var(--color-primary)]">{stats.studentsServed}</p>
-        <p class="text-xs text-[var(--color-text-muted)] mt-1 uppercase tracking-wide">Students Served</p>
+        <p class="text-xs text-[var(--color-text-muted)] mt-1 uppercase tracking-wide">{projectsStrings.labels.studentsServed}</p>
       </div>
       <div class="text-center border-x border-[var(--color-border)]">
         <p class="font-heading text-3xl font-bold text-[var(--color-primary)]">{stats.classroomsBuilt}</p>
-        <p class="text-xs text-[var(--color-text-muted)] mt-1 uppercase tracking-wide">Classrooms Built</p>
+        <p class="text-xs text-[var(--color-text-muted)] mt-1 uppercase tracking-wide">{projectsStrings.labels.classroomsBuilt}</p>
       </div>
       <div class="text-center">
         <p class="font-heading text-3xl font-bold text-[var(--color-primary)]">{stats.volunteersInvolved}</p>
-        <p class="text-xs text-[var(--color-text-muted)] mt-1 uppercase tracking-wide">Volunteers</p>
+        <p class="text-xs text-[var(--color-text-muted)] mt-1 uppercase tracking-wide">{projectsStrings.labels.volunteersInvolved}</p>
       </div>
     </div>
 

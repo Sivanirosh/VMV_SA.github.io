@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionHeader from '../components/shared/SectionHeader.astro';
-import DonateButton from '../components/shared/DonateButton.astro';
 import { about, images } from '../i18n/en';
 import { url } from '../utils/url';
 ---
@@ -16,7 +15,7 @@ import { url } from '../utils/url';
         </h1>
         <p class="text-lg text-[var(--color-text-muted)] leading-relaxed">{about.hero.subheading}</p>
       </div>
-      <div class="rounded-xl overflow-hidden aspect-[4/3]">
+      <div class="rounded-xl overflow-hidden aspect-[4/3] border border-[var(--color-border)] shadow-sm">
         <img src={url(images.aboutTeam)} alt={images.aboutTeamAlt} class="w-full h-full object-cover" />
       </div>
     </div>
@@ -26,7 +25,11 @@ import { url } from '../utils/url';
   <section class="py-20">
     <div class="max-w-3xl mx-auto px-4">
       <SectionHeader heading={about.mission.heading} />
-      <p class="text-lg text-[var(--color-text-muted)] leading-relaxed">{about.mission.body}</p>
+      <div class="space-y-5">
+        {about.mission.paragraphs.map((paragraph) => (
+          <p class="text-lg text-[var(--color-text-muted)] leading-relaxed">{paragraph}</p>
+        ))}
+      </div>
     </div>
   </section>
 
@@ -34,56 +37,73 @@ import { url } from '../utils/url';
   <section class="py-20 bg-[var(--color-surface)]">
     <div class="max-w-3xl mx-auto px-4">
       <SectionHeader heading={about.origin.heading} />
-      <p class="text-lg text-[var(--color-text-muted)] leading-relaxed">{about.origin.body}</p>
+      <div class="space-y-5">
+        {about.origin.paragraphs.map((paragraph) => (
+          <p class="text-lg text-[var(--color-text-muted)] leading-relaxed">{paragraph}</p>
+        ))}
+      </div>
     </div>
   </section>
 
-  <!-- Team -->
+  <!-- Values -->
   <section class="py-20">
-    <div class="max-w-6xl mx-auto px-4">
-      <SectionHeader heading={about.team.heading} />
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {about.team.members.map((member) => (
-          <div class="flex gap-5 items-start p-6 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)]">
-            <img
-              src={url(member.image)}
-              alt={member.imageAlt}
-              class="w-20 h-20 rounded-full object-cover shrink-0"
-            />
-            <div>
-              <p class="font-heading font-bold text-lg text-[var(--color-text)]">{member.name}</p>
-              <p class="text-sm text-[var(--color-primary)] font-semibold mb-2">{member.role}</p>
-              <p class="text-sm text-[var(--color-text-muted)]">{member.bio}</p>
-            </div>
+    <div class="max-w-5xl mx-auto px-4">
+      <SectionHeader heading={about.values.heading} centered />
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {about.values.items.map((item) => (
+          <div class="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 text-center">
+            <p class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[var(--color-primary)] font-heading text-2xl font-bold text-white">
+              {item.letter}
+            </p>
+            <h3 class="font-heading text-xl font-bold text-[var(--color-text)] mb-2">{item.word}</h3>
+            <p class="text-[var(--color-text-muted)]">{item.meaning}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Financials -->
+  <!-- Centre today -->
   <section class="py-20 bg-[var(--color-surface)]">
     <div class="max-w-3xl mx-auto px-4">
-      <SectionHeader heading={about.financials.heading} />
-      <p class="text-[var(--color-text-muted)] mb-6">{about.financials.body}</p>
-      <a
-        href={about.financials.linkHref}
-        class="inline-flex items-center gap-2 text-[var(--color-primary)] font-semibold hover:underline"
-      >
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
-        </svg>
-        {about.financials.linkLabel}
-      </a>
+      <SectionHeader heading={about.centre.heading} />
+      <div class="space-y-5">
+        {about.centre.paragraphs.map((paragraph) => (
+          <p class="text-lg text-[var(--color-text-muted)] leading-relaxed">{paragraph}</p>
+        ))}
+      </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="py-20 text-center">
-    <div class="max-w-xl mx-auto px-4">
-      <h2 class="font-heading text-3xl font-bold text-[var(--color-text)] mb-4">Ready to help?</h2>
-      <p class="text-[var(--color-text-muted)] mb-8">Your contribution directly builds classrooms for children in rural Sri Lanka.</p>
-      <DonateButton size="lg" />
+  <!-- Milestones -->
+  <section class="py-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <SectionHeader heading={about.milestones.heading} centered />
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {about.milestones.items.map((item) => (
+          <article class="rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-6 shadow-sm">
+            <p class="text-sm font-semibold text-[var(--color-primary)] mb-2">{item.year}</p>
+            <h3 class="font-heading text-xl font-bold text-[var(--color-text)] mb-2">{item.title}</h3>
+            <p class="text-[var(--color-text-muted)] leading-relaxed">{item.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Leadership -->
+  <section class="py-20 bg-[var(--color-surface)]">
+    <div class="max-w-6xl mx-auto px-4">
+      <SectionHeader heading={about.leadership.heading} />
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {about.leadership.members.map((member) => (
+          <div class="p-6 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)]">
+            <p class="font-heading font-bold text-lg text-[var(--color-text)]">{member.name}</p>
+            <p class="text-sm text-[var(--color-primary)] font-semibold mb-2">{member.role}</p>
+            <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">{member.bio}</p>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 </BaseLayout>

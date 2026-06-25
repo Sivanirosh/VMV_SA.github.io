@@ -1,246 +1,276 @@
-// TODO: replace with final association name
-export const siteName = 'VMV SA';
+export const siteName = 'VMV Udhavikkaram';
+export const fullSiteName = 'VMV Udhavikkaram (Helping Hand)';
 export const siteDescription =
-  'Building schools in rural Sri Lanka — one community at a time.';
+  'Supporting free education, student welfare and community development across all twelve wards of Pungudutivu, Sri Lanka.';
 
 export const images = {
-  heroMain: '/images/field/PLACEHOLDER_hero-main.jpg',
-  heroAlt: 'Children in a bright classroom in rural Sri Lanka',
-  projectCover: '/images/field/PLACEHOLDER_project-cover.jpg',
-  projectCoverAlt: 'Construction of a new school building',
-  storyAmalka: '/images/field/PLACEHOLDER_story-amalka.jpg',
-  storyAmalkaAlt: 'Amalka standing in front of her school',
-  storyNuwan: '/images/field/PLACEHOLDER_story-nuwan.jpg',
-  storyNuwanAlt: 'Nuwan reading at his desk',
-  aboutTeam: '/images/field/PLACEHOLDER_about-team.jpg',
-  aboutTeamAlt: 'VMV SA team members at the building site',
-  teamMember1: '/images/field/PLACEHOLDER_team-member-1.jpg',
-  teamMember1Alt: 'Portrait of team member',
-  teamMember2: '/images/field/PLACEHOLDER_team-member-2.jpg',
-  teamMember2Alt: 'Portrait of team member',
+  heroMain: '/images/field/vmv-hero-main.jpg',
+  heroAlt: 'Students and community members connected to Sulakshana Free Education Centre',
+  projectCover: '/images/field/sulakshana-education-centre.jpg',
+  projectCoverAlt: 'Sulakshana Free Education Centre learning space in Pungudutivu',
+  storyEducation: '/images/field/computer-classes-library.jpg',
+  storyEducationAlt: 'Education activities at Sulakshana Free Education Centre',
+  storyCommunity: '/images/field/community-service.jpg',
+  storyCommunityAlt: 'Community activities supported by VMV Udhavikkaram',
+  aboutTeam: '/images/field/vmv-community.jpg',
+  aboutTeamAlt: 'VMV volunteers, teachers and community supporters in Pungudutivu',
+  teamMember1: '/images/field/community-supporters.jpg',
+  teamMember1Alt: 'VMV community representative',
+  teamMember2: '/images/field/education-guidance.jpg',
+  teamMember2Alt: 'Sulakshana Education Centre teacher',
   logoMain: '/images/logos/vmv-sa-logo.svg',
-  logoAlt: 'VMV SA logo',
-  twintQr: '/images/PLACEHOLDER_twint-qr.svg',
-  twintQrAlt: 'Twint QR code for donations',
+  logoAlt: 'VMV Udhavikkaram logo',
 } as const;
 
 export const nav = {
   home: 'Home',
   about: 'About',
-  projects: 'Projects',
-  stories: 'Stories',
-  volunteer: 'Volunteer',
+  projects: 'Education Centre',
+  stories: 'Activities',
   contact: 'Contact',
-  donate: 'Donate',
+  menuLabel: 'Toggle menu',
 };
 
 export const footer = {
-  tagline: 'Building schools. Changing futures.',
-  copyright: `© ${new Date().getFullYear()} VMV SA. All rights reserved.`, // TODO: replace with final association name
-  links: {
-    privacy: 'Privacy',
+  tagline: 'Wisdom, determination and perseverance through education.',
+  summary:
+    'VMV Udhavikkaram supports Sulakshana Free Education Centre and long-term community initiatives across Pungudutivu.',
+  copyright: `© ${new Date().getFullYear()} ${fullSiteName}. All rights reserved.`,
+  sections: {
+    navigate: 'Navigate',
+    focus: 'Focus areas',
     contact: 'Contact',
-    financials: 'Financials',
   },
+  focusAreas: ['Free education', 'Student welfare', 'Technology access', 'Community service'],
+  contactNote:
+    'For enquiries, please contact the VMV committee through the official channels shared by VMV representatives.',
 };
 
 export const home = {
   hero: {
-    headline: 'Every child deserves a place to learn.',
+    eyebrow: 'Sulakshana Free Education Centre · Pungudutivu',
+    headline: 'Education is the helping hand that changes a community.',
     subheadline:
-      'VMV SA builds schools in rural Sri Lanka, giving children a safe space to grow, learn, and thrive.', // TODO: replace with final association name
-    ctaDonate: 'Donate Now',
-    ctaLearnMore: 'Learn More',
+      'VMV Udhavikkaram supports free education, student welfare and village-led development so children across Pungudutivu can build a self-sufficient future.',
+    ctaPrimary: 'Explore the Centre',
+    ctaSecondary: 'Read Our Story',
+    ctaContact: 'Contact VMV',
   },
   impact: {
-    heading: 'Our Impact So Far',
-    schools: { value: '[3]', label: 'Schools Built' },
-    children: { value: '[450]', label: 'Children Reached' },
-    volunteers: { value: '[28]', label: 'Volunteers Involved' },
+    heading: 'Serving all twelve wards of Pungudutivu',
+    subheading:
+      'What began as one classroom for 20 students is now a growing education centre with teachers, technology, books and community support.',
+    stats: [
+      { value: '167', label: 'Students', helper: 'Grades 1 to 11' },
+      { value: '9', label: 'Teachers', helper: 'Free education support' },
+      { value: '5', label: 'Classrooms', helper: 'At the education centre' },
+      { value: '1,800', label: 'Books', helper: 'Pungudi Arivagam library' },
+    ],
   },
   currentProject: {
-    heading: 'Current Project',
-    linkLabel: 'Follow the Project',
+    heading: 'Current Focus',
+    linkLabel: 'Visit the Education Centre page',
   },
   storyReel: {
-    heading: 'Stories of Change',
-    linkLabel: 'Read All Stories',
+    heading: 'Activity Updates',
+    linkLabel: 'Read All Activities',
   },
   programs: {
-    heading: 'How We Work',
-    build: {
-      title: 'Build',
-      body: 'In Progress…',
-    },
-    educate: {
-      title: 'Educate',
-      body: 'In Progress…',
-    },
-    sustain: {
-      title: 'Sustain',
-      body: 'In Progress…',
-    },
+    heading: 'How VMV Helps',
+    subheading:
+      'Long-term change needs more than short-term relief. VMV focuses on education, student welfare and practical community support.',
+    items: [
+      {
+        icon: '📚',
+        title: 'Free Education',
+        body:
+          'Sulakshana Free Education Centre provides classes for Grades 1–11, building on Teacher Ashok’s free mathematics teaching since 2005.',
+      },
+      {
+        icon: '💻',
+        title: 'Technology & Library',
+        body:
+          'Computer classes began on 26 January 2024, and Pungudi Arivagam now gives students access to 1,800 donated books.',
+      },
+      {
+        icon: '🤝',
+        title: 'Student Welfare',
+        body:
+          'VMV supports scholarships, laptops, bicycles, first-aid training and a child welfare savings scheme for vulnerable students.',
+      },
+      {
+        icon: '🌱',
+        title: 'Community Strength',
+        body:
+          'The VMV Youth Wing leads shramadhanam cleaning, tree planting and street-light projects that make learning safer and healthier.',
+      },
+    ],
   },
   partners: {
-    heading: 'Our Partners',
+    heading: 'Built with the village and the diaspora',
+    subheading:
+      'Every classroom, book, scholarship and bicycle is possible because local leaders and overseas supporters work together.',
+    supporters: ['Diaspora donors', 'Teacher Ashok', 'VMV Youth Wing', 'Village well-wishers'],
   },
   newsletter: {
-    heading: 'Stay Informed',
-    subheading: 'Receive field updates, project news, and stories from Sri Lanka.',
-    placeholder: 'Your email address',
-    cta: 'Subscribe',
-    disclaimer: 'No spam. Unsubscribe at any time.',
+    heading: 'Future planning',
+    subheading:
+      'VMV is preparing wider classes for Pungudutivu students, A/L seminars, vocational guidance and transport support from distant wards.',
+    cta: 'Discuss future support',
+    disclaimer: 'The website will add official public contact details once confirmed by VMV.',
   },
 };
 
 export const about = {
   meta: {
     title: `About — ${siteName}`,
-    description: 'Learn about our mission, our origin, and the team behind VMV SA.',
+    description:
+      'The origin, mission and values of VMV Udhavikkaram and Sulakshana Free Education Centre.',
   },
   hero: {
-    heading: 'About Us',
-    subheading: 'In Progress…',
+    heading: 'About VMV Udhavikkaram',
+    subheading:
+      'A community and diaspora-supported helping hand for education and welfare in Pungudutivu.',
   },
   mission: {
     heading: 'Our Mission',
-    body: 'In Progress…',
+    paragraphs: [
+      'VMV Udhavikkaram believes education is the path to a capable, independent-thinking and self-sufficient society.',
+      'The organisation supports Sulakshana Free Education Centre so children from every ward of Pungudutivu can learn without regional bias and without free goods or short-term relief becoming the only answer.',
+    ],
   },
   origin: {
     heading: 'Our Story',
-    body: 'In Progress…',
+    paragraphs: [
+      'Vallan, Mavuththidal and Veeramamlai Helping Hand began during 2017–2018 through Mr. Sellathurai Sathananthan and well-wishers from the villages.',
+      'During the COVID-19 years of 2021 and 2022, the organisation worked with the diaspora to provide dry rations, assistance for pregnant mothers, aid for elderly people and support for school students.',
+      'In April 2022, a major milestone began with a child welfare savings scheme: Rs. 25,000 was deposited for each of 25 children from the villages.',
+      'VMV then partnered with Teacher Ashok, who has provided free mathematics education since 2005, to strengthen Sulakshana Free Education Centre as the organisation’s central education initiative.',
+    ],
   },
-  team: {
-    heading: 'The Team',
-    members: [
+  values: {
+    heading: 'What VMV Stands For',
+    items: [
+      { letter: 'V', word: 'Vivekam', meaning: 'Wisdom / prudence' },
+      { letter: 'M', word: 'Mana-uruthi', meaning: 'Mental fortitude / determination' },
+      { letter: 'V', word: 'Vida-muyarchi', meaning: 'Perseverance' },
+    ],
+  },
+  milestones: {
+    heading: 'Milestones',
+    items: [
       {
-        name: 'In Progress…',
-        role: 'In Progress…',
-        bio: 'In Progress…',
-        image: images.teamMember1,
-        imageAlt: images.teamMember1Alt,
+        year: '2017–2018',
+        title: 'Helping Hand begins',
+        body: 'Mr. Sellathurai Sathananthan and village well-wishers start the Vallan, Mavuththidal and Veeramamlai Helping Hand effort.',
       },
       {
-        name: 'In Progress…',
-        role: 'In Progress…',
-        bio: 'In Progress…',
-        image: images.teamMember2,
-        imageAlt: images.teamMember2Alt,
+        year: '2021–2022',
+        title: 'COVID-19 relief',
+        body: 'Diaspora-supported relief reaches families, pregnant mothers, elderly people and students during the pandemic.',
+      },
+      {
+        year: 'April 2022',
+        title: 'Child welfare savings',
+        body: 'Rs. 25,000 is deposited for each of 25 children as a long-term welfare commitment.',
+      },
+      {
+        year: '26 January 2024',
+        title: 'Computer classes begin',
+        body: 'Diaspora donors help start computer classes so students can improve their technological knowledge.',
       },
     ],
   },
-  financials: {
-    heading: 'Financial Transparency',
-    body: 'We publish our annual financial report every year. Transparency is a core value.',
-    linkLabel: 'Download Annual Report (PDF)',
-    linkHref: '#', // TODO: replace with real PDF link
+  leadership: {
+    heading: 'People Guiding the Work',
+    members: [
+      {
+        name: 'Mr. Sellathurai Sathananthan and village well-wishers',
+        role: 'Founding initiative',
+        bio: 'Started the Helping Hand effort for Vallan, Mavuththidal and Veeramamlai during 2017–2018.',
+      },
+      {
+        name: 'Teacher Ashok',
+        role: 'Education guidance',
+        bio: 'A long-standing free mathematics teacher whose guidance helped Sulakshana Free Education Centre grow into VMV’s central education initiative.',
+      },
+    ],
+  },
+  centre: {
+    heading: 'Sulakshana Free Education Centre Today',
+    paragraphs: [
+      'The centre began with one classroom and 20 students.',
+      'It now serves 167 students from Grades 1 to 11 across all twelve wards of Pungudutivu, with five classrooms and nine teachers.',
+    ],
   },
 };
 
 export const projects = {
   meta: {
-    title: `Projects — ${siteName}`,
-    description: 'All school building projects by VMV SA in rural Sri Lanka.',
+    title: `Sulakshana Free Education Centre — ${siteName}`,
+    description:
+      'The central education initiative of VMV Udhavikkaram in Pungudutivu, Sri Lanka.',
   },
-  heading: 'Our Projects',
-  subheading: 'From the first stone to the last classroom — every project documented.',
+  heading: 'Sulakshana Free Education Centre',
+  subheading:
+    'A growing free education centre serving students from all twelve wards of Pungudutivu.',
   statusLabels: {
     planned: 'Planned',
     'in-progress': 'In Progress',
+    completed: 'Completed',
+  },
+  labels: {
+    studentsServed: 'Students',
+    classroomsBuilt: 'Classrooms',
+    volunteersInvolved: 'Teachers',
+    started: 'Started',
     completed: 'Completed',
   },
 };
 
 export const stories = {
   meta: {
-    title: `Stories — ${siteName}`,
-    description: 'Real stories from the children and communities we serve in Sri Lanka.',
+    title: `Activities — ${siteName}`,
+    description:
+      'Activities and milestones from VMV Udhavikkaram, Sulakshana Free Education Centre and the Pungudutivu community.',
   },
-  heading: 'Stories of Change',
-  subheading: 'Behind every school is a child whose life is different because of it.',
-};
-
-export const volunteer = {
-  meta: {
-    title: `Volunteer — ${siteName}`,
-    description: 'Join VMV SA as a volunteer and help build schools in Sri Lanka.',
-  },
-  hero: {
-    heading: 'Volunteer With Us',
-    subheading: 'In Progress…',
-  },
-  info: {
-    heading: 'What to Expect',
-    body: 'In Progress…',
-  },
-  form: {
-    heading: 'Apply to Volunteer',
-    fields: {
-      name: 'Full Name',
-      email: 'Email Address',
-      availability: 'Availability',
-      message: 'Tell us about yourself',
-    },
-    submit: 'Submit Application',
-    disclaimer: 'We will get back to you within 5 business days.',
-  },
-};
-
-export const donate = {
-  meta: {
-    title: `Donate — ${siteName}`,
-    description: 'Support VMV SA — donate to build schools in rural Sri Lanka.',
-  },
-  hero: {
-    heading: 'Support Our Work',
-    subheading: 'Your donation directly funds school construction in rural Sri Lanka.',
-  },
-  form: {
-    amountHeading: 'Choose an Amount',
-    tiers: ['20', '50', '100', '200'],
-    customPlaceholder: 'Custom amount',
-    frequencyOnce: 'Give Once',
-    frequencyMonthly: 'Give Monthly',
-    currencies: ['CHF', 'EUR', 'USD'],
-    defaultCurrency: 'CHF',
-    submitLabel: 'Proceed to Payment',
-    disclaimer: 'You will be redirected to our secure payment page.',
-  },
-  wire: {
-    heading: 'Bank Transfer',
-    iban: '[IBAN — In Progress]', // TODO: replace with real IBAN once bank account is open
-    beneficiary: 'VMV SA', // TODO: replace with final association name
-    bank: '[Bank Name — In Progress]',
-    reference: 'Please include your name and year as payment reference (e.g. Smith 2026).',
-  },
-  twint: {
-    heading: 'Pay with Twint',
-    instruction: 'Scan the QR code with your Twint app.',
-  },
-  taxReceipt: {
-    heading: 'Tax Receipt',
-    body: 'A tax receipt is issued automatically for donations of CHF 100 or more. Sent to your email within 5 business days.',
+  heading: 'Activities & Milestones',
+  subheading:
+    'Updates from the education centre, student welfare work, youth wing and community projects supported by VMV.',
+  labels: {
+    published: 'Published',
+    titleSuffix: 'Activities',
   },
 };
 
 export const contact = {
   meta: {
     title: `Contact — ${siteName}`,
-    description: 'Get in touch with VMV SA — for press, partnership, or general enquiries.',
+    description:
+      'Contact VMV Udhavikkaram about Sulakshana Free Education Centre, student welfare and community support.',
   },
   hero: {
-    heading: 'Get in Touch',
-    subheading: 'For press, partnership enquiries, or questions about our work.',
+    heading: 'Contact VMV',
+    subheading:
+      'For questions about Sulakshana Free Education Centre, student welfare or future support, please contact the VMV committee through official VMV representative channels.',
   },
-  form: {
-    heading: 'Send a Message',
-    fields: {
-      organisation: 'Organisation',
-      name: 'Contact Name',
-      email: 'Email Address',
-      message: 'Message',
-    },
-    submit: 'Send Message',
+  intro: {
+    heading: 'Current support discussions',
+    paragraphs: [
+      'VMV is focusing on education for students across Pungudutivu, transport support for distant wards, A/L seminars, vocational guidance and student welfare needs.',
+      'Official public contact details will be added here once they are confirmed by the VMV committee.',
+    ],
+  },
+  focus: {
+    heading: 'Useful topics to mention',
+    items: [
+      'Sulakshana Free Education Centre classes',
+      'Computer learning and library support',
+      'Bicycles, scholarships or laptops for students',
+      'Transport support from distant wards',
+      'A/L seminars and vocational guidance',
+      'VMV Youth Wing community activities',
+    ],
   },
 };
 

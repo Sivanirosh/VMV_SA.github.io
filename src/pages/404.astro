@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import DonateButton from '../components/shared/DonateButton.astro';
 import { notFound, siteName } from '../i18n/en';
 import { url } from '../utils/url';
 ---
@@ -11,15 +10,12 @@ import { url } from '../utils/url';
       <p class="font-heading text-8xl font-bold text-[var(--color-primary)] mb-4">404</p>
       <h1 class="font-heading text-3xl font-bold text-[var(--color-text)] mb-4">{notFound.heading}</h1>
       <p class="text-[var(--color-text-muted)] mb-10">{notFound.body}</p>
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a
-          href={url('/')}
-          class="inline-flex items-center px-6 py-3 rounded-md font-semibold border-2 border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white transition-colors"
-        >
-          {notFound.cta}
-        </a>
-        <DonateButton />
-      </div>
+      <a
+        href={url('/')}
+        class="inline-flex items-center px-6 py-3 rounded-md font-semibold border-2 border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white transition-colors"
+      >
+        {notFound.cta}
+      </a>
     </div>
   </section>
 </BaseLayout>

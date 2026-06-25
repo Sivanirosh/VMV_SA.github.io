@@ -1,38 +1,37 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import { stories } from '../i18n/en';
+import { url } from '../utils/url';
 
 interface Props {
   name: string;
-  age: number;
+  age?: number;
   location: string;
   coverImage: string;
   quote: string;
   publishedDate: string;
 }
 
-import { url } from '../utils/url';
 const { name, age, location, coverImage, quote, publishedDate } = Astro.props;
+const title = age ? `${name}, ${age}` : name;
 ---
 
-<BaseLayout title={`${name}'s Story`} description={quote}>
+<BaseLayout title={`${name} — ${stories.labels.titleSuffix}`} description={quote}>
   <!-- Cover image -->
-  <div class="w-full aspect-[21/9] overflow-hidden">
-    <img src={url(coverImage)} alt={`Portrait of ${name}`} class="w-full h-full object-cover object-top" />
+  <div class="w-full aspect-[21/9] overflow-hidden bg-[var(--color-surface)]">
+    <img src={url(coverImage)} alt={name} class="w-full h-full object-cover object-center" />
   </div>
 
   <article class="max-w-3xl mx-auto px-4 py-16">
     <!-- Header -->
     <div class="mb-10">
-      <p class="text-sm text-[var(--color-text-muted)] mb-3">{location} · Published {publishedDate}</p>
+      <p class="text-sm text-[var(--color-text-muted)] mb-3">{location} · {stories.labels.published} {publishedDate}</p>
       <h1 class="font-heading text-4xl md:text-5xl font-bold text-[var(--color-text)] mb-6">
-        {name}, {age}
+        {title}
       </h1>
-      <!-- Pull quote -->
-      <blockquote class="border-l-4 border-[var(--color-primary)] pl-6 my-8">
-        <p class="font-heading text-xl md:text-2xl italic text-[var(--color-text)] leading-relaxed">
-          "{quote}"
-        </p>
-      </blockquote>
+      <p class="border-l-4 border-[var(--color-primary)] pl-6 my-8 text-xl text-[var(--color-text)] leading-relaxed">
+        {quote}
+      </p>
     </div>
 
     <!-- Body -->

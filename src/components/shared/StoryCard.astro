@@ -2,7 +2,7 @@
 interface Props {
   slug: string;
   name: string;
-  age: number;
+  age?: number;
   location: string;
   coverImage: string;
   quote: string;
@@ -10,27 +10,26 @@ interface Props {
 
 import { url } from '../../utils/url';
 const { slug, name, age, location, coverImage, quote } = Astro.props;
+const title = age ? `${name}, ${age}` : name;
 ---
 
 <a
   href={url(`/stories/${slug}`)}
   class="group block rounded-xl overflow-hidden border border-[var(--color-border)] bg-[var(--color-bg)] hover:shadow-md transition-shadow"
 >
-  <div class="aspect-square overflow-hidden">
+  <div class="aspect-[4/3] overflow-hidden">
     <img
       src={url(coverImage)}
-      alt={`Portrait of ${name}`}
+      alt={name}
       class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
       loading="lazy"
     />
   </div>
   <div class="p-5">
     <p class="text-xs text-[var(--color-text-muted)] mb-2">{location}</p>
-    <blockquote class="text-sm italic text-[var(--color-text)] mb-3 leading-relaxed">
-      "{quote}"
-    </blockquote>
-    <p class="font-semibold text-sm text-[var(--color-text)]">
-      — {name}, {age}
-    </p>
+    <h3 class="font-heading text-lg font-bold text-[var(--color-text)] mb-3 group-hover:text-[var(--color-primary)] transition-colors">
+      {title}
+    </h3>
+    <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">{quote}</p>
   </div>
 </a>

@@ -22,7 +22,7 @@ const stories = defineCollection({
   type: 'content',
   schema: z.object({
     name: z.string(),
-    age: z.number(),
+    age: z.number().optional(),
     location: z.string(),
     coverImage: z.string(),
     quote: z.string().max(120, 'Quote must be max ~20 words'),

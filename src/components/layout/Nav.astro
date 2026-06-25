@@ -1,5 +1,5 @@
 ---
-import { nav, images, siteName } from '../../i18n/en';
+import { nav, images } from '../../i18n/en';
 import { url } from '../../utils/url';
 
 const links = [
@@ -7,19 +7,17 @@ const links = [
   { label: nav.about, href: url('/about') },
   { label: nav.projects, href: url('/projects') },
   { label: nav.stories, href: url('/stories') },
-  { label: nav.volunteer, href: url('/volunteer') },
   { label: nav.contact, href: url('/contact') },
 ];
 
 const currentPath = Astro.url.pathname;
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <header class="sticky top-0 z-50 bg-[var(--color-bg)] border-b border-[var(--color-border)]">
   <nav class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
     <!-- Logo -->
-    <a href={url('/')} class="flex items-center gap-2 shrink-0">
-      <img src={url(images.logoMain)} alt={images.logoAlt} class="h-8 w-auto" />
+    <a href={url('/')} class="flex items-center gap-2 shrink-0" aria-label={nav.home}>
+      <img src={url(images.logoMain)} alt={images.logoAlt} class="h-9 w-auto" />
     </a>
 
     <!-- Desktop links -->
@@ -40,19 +38,11 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       ))}
     </ul>
 
-    <!-- Donate button -->
-    <a
-      href={url('/donate')}
-      class="hidden md:inline-flex items-center px-4 py-2 rounded-md text-sm font-semibold text-white bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] transition-colors"
-    >
-      {nav.donate}
-    </a>
-
     <!-- Mobile hamburger -->
     <button
       id="nav-toggle"
       class="md:hidden p-2 text-[var(--color-text-muted)] hover:text-[var(--color-primary)]"
-      aria-label="Toggle menu"
+      aria-label={nav.menuLabel}
       aria-expanded="false"
     >
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -72,20 +62,11 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
             class={`block text-sm font-body transition-colors hover:text-[var(--color-primary)] ${
               currentPath === link.href ? 'text-[var(--color-primary)] font-semibold' : 'text-[var(--color-text-muted)]'
             }`}
-
           >
             {link.label}
           </a>
         </li>
       ))}
-      <li>
-        <a
-          href={url('/donate')}
-          class="inline-flex items-center px-4 py-2 rounded-md text-sm font-semibold text-white bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] transition-colors"
-        >
-          {nav.donate}
-        </a>
-      </li>
     </ul>
   </div>
 </header>
